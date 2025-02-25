@@ -1,0 +1,36 @@
+// Project : 
+// Script by : Nanatchy
+
+using System;
+using UnityEngine;
+
+    #ROOTNAMESPACEBEGIN#
+public class #SCRIPTNAME# : MonoBehaviour
+{
+    #region Attributs
+
+
+
+    #endregion
+
+    #region Methods
+
+
+
+    #endregion
+
+    #region Behaviors
+	
+	private void Start()
+    {
+        #NOTRIM#
+    }
+	
+    private void Update()
+    {
+        #NOTRIM#
+    }
+	
+	#endregion
+}
+#ROOTNAMESPACEEND#
