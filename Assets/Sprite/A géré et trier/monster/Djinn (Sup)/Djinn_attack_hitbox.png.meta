@@ -1,0 +1,747 @@
+fileFormatVersion: 2
+guid: dbac43402c62c024d91406360268a1c5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -879636705957008146
+    second: Djinn_attack_hitbox_0
+  - first:
+      213: -5239889886361827781
+    second: Djinn_attack_hitbox_1
+  - first:
+      213: 431114108486372642
+    second: Djinn_attack_hitbox_2
+  - first:
+      213: -5277117261208532877
+    second: Djinn_attack_hitbox_3
+  - first:
+      213: 4488120310655826346
+    second: Djinn_attack_hitbox_4
+  - first:
+      213: -8161306300047294152
+    second: Djinn_attack_hitbox_5
+  - first:
+      213: 7200849441304014329
+    second: Djinn_attack_hitbox_6
+  - first:
+      213: -6304553483775765009
+    second: Djinn_attack_hitbox_7
+  - first:
+      213: -6749875761202751372
+    second: Djinn_attack_hitbox_8
+  - first:
+      213: 375090346564789086
+    second: Djinn_attack_hitbox_9
+  - first:
+      213: 3643467056090045691
+    second: Djinn_attack_hitbox_10
+  - first:
+      213: 2131392535475407672
+    second: Djinn_attack_hitbox_11
+  - first:
+      213: -2147185472435582037
+    second: Djinn_attack_hitbox_12
+  - first:
+      213: 8086514478979350639
+    second: Djinn_attack_hitbox_13
+  - first:
+      213: -1399500025721808918
+    second: Djinn_attack_hitbox_14
+  - first:
+      213: -352065690967757492
+    second: Djinn_attack_hitbox_15
+  - first:
+      213: -1471123911950544839
+    second: Djinn_attack_hitbox_16
+  - first:
+      213: 852549721595770237
+    second: Djinn_attack_hitbox_17
+  - first:
+      213: 9155379261158319577
+    second: Djinn_attack_hitbox_18
+  - first:
+      213: 3912392712385459664
+    second: Djinn_attack_hitbox_19
+  - first:
+      213: 7651220498149522224
+    second: Djinn_attack_hitbox_20
+  - first:
+      213: -1623928511854246816
+    second: Djinn_attack_hitbox_21
+  - first:
+      213: 3407367594177858507
+    second: Djinn_attack_hitbox_22
+  - first:
+      213: -6938469034838257489
+    second: Djinn_attack_hitbox_23
+  - first:
+      213: -7273354455789506164
+    second: Djinn_attack_hitbox_24
+  - first:
+      213: -6900185574145551258
+    second: Djinn_attack_hitbox_25
+  - first:
+      213: -6458589444004122016
+    second: Djinn_attack_hitbox_26
+  - first:
+      213: -1520063329611771117
+    second: Djinn_attack_hitbox_27
+  - first:
+      213: -5920664138248115209
+    second: Djinn_attack_hitbox_28
+  - first:
+      213: 5355671860634954365
+    second: Djinn_attack_hitbox_29
+  - first:
+      213: -5986316358890848342
+    second: Djinn_attack_hitbox_30
+  - first:
+      213: -3280541817455311021
+    second: Djinn_attack_hitbox_31
+  - first:
+      213: 7032651639052021027
+    second: Djinn_attack_hitbox_32
+  - first:
+      213: -1627430419497414190
+    second: Djinn_attack_hitbox_33
+  - first:
+      213: 4443444525199828106
+    second: Djinn_attack_hitbox_34
+  - first:
+      213: -3358863641053602538
+    second: Djinn_attack_hitbox_35
+  - first:
+      213: 4345163440228504273
+    second: Djinn_attack_hitbox_36
+  - first:
+      213: 8986998209020384692
+    second: Djinn_attack_hitbox_37
+  - first:
+      213: 2158112116732012455
+    second: Djinn_attack_hitbox_38
+  - first:
+      213: -5200846194154312930
+    second: Djinn_attack_hitbox_39
+  - first:
+      213: -7350408499507563129
+    second: Djinn_attack_hitbox_40
+  - first:
+      213: -8879411402356774304
+    second: Djinn_attack_hitbox_41
+  - first:
+      213: -6965911608632619795
+    second: Djinn_attack_hitbox_42
+  - first:
+      213: -4606807451901124393
+    second: Djinn_attack_hitbox_43
+  - first:
+      213: 5292702035345549577
+    second: Djinn_attack_hitbox_44
+  - first:
+      213: -137646809782291288
+    second: Djinn_attack_hitbox_45
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Djinn_attack_hitbox_2
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22d4dfd5fff9bf500800000000000000
+      internalID: 431114108486372642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Djinn_attack_hitbox_4
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa93bd9b4a1094e30800000000000000
+      internalID: 4488120310655826346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Djinn_attack_hitbox_6
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fdeef54a6e8ee360800000000000000
+      internalID: 7200849441304014329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Djinn_attack_hitbox_8
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4789d7fe1cf9352a0800000000000000
+      internalID: -6749875761202751372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Djinn_attack_hitbox_10
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfcd51dcbf1309230800000000000000
+      internalID: 3643467056090045691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Djinn_attack_hitbox_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 144
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f600e9e0312193070800000000000000
+      internalID: 8086514478979350639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Djinn_attack_hitbox_14
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 144
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae793b7342af39ce0800000000000000
+      internalID: -1399500025721808918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Djinn_attack_hitbox_19
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 144
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d5ff83717c9b4630800000000000000
+      internalID: 3912392712385459664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Djinn_attack_hitbox_21
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 144
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0648c465f95a679e0800000000000000
+      internalID: -1623928511854246816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Djinn_attack_hitbox_23
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 96
+        width: 144
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa01b65ac2b95bf90800000000000000
+      internalID: -6938469034838257489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Djinn_attack_hitbox_34
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 254f36b02293d80429f90d4ddb58ea11
+      internalID: 4443444525199828106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Djinn_attack_hitbox_36
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43e71bb96cfef8b41819d8b5fb6ccb0d
+      internalID: 4345163440228504273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Djinn_attack_hitbox_38
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e72728e822e0d34408cf6e986f565fc2
+      internalID: 2158112116732012455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Djinn_attack_hitbox_40
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2be6d3516f5d952458266b5c4ffe1394
+      internalID: -7350408499507563129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Djinn_attack_hitbox_42
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ab4acf1738222a4c957d925343e7d52
+      internalID: -6965911608632619795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Djinn_attack_hitbox_48
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 192
+        width: 144
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee38fc91306a0184b9ab3ac28624c56a
+      internalID: -1970628118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Djinn_attack_hitbox_22
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 96
+        width: 144
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e64c2e0e5071da544ad1ee5e6ede36c7
+      internalID: 3407367594177858507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Djinn_attack_hitbox_49
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 96
+        width: 144
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9fa5da02175e5041878d04e38835dc0
+      internalID: 580211256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Djinn_attack_hitbox_50
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 96
+        width: 144
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c755d140a3010640a7ef622d1d576d1
+      internalID: -168427805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Djinn_attack_hitbox_51
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 96
+        width: 144
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77432cc7ec12c9c46846c2627a2b18f2
+      internalID: -950090756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f2adf807ac709d145b2733e734ed2f74
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Djinn_attack_hitbox_0: -879636705957008146
+      Djinn_attack_hitbox_1: -5239889886361827781
+      Djinn_attack_hitbox_10: 3643467056090045691
+      Djinn_attack_hitbox_11: 2131392535475407672
+      Djinn_attack_hitbox_12: -2147185472435582037
+      Djinn_attack_hitbox_13: 8086514478979350639
+      Djinn_attack_hitbox_14: -1399500025721808918
+      Djinn_attack_hitbox_15: -352065690967757492
+      Djinn_attack_hitbox_16: -1471123911950544839
+      Djinn_attack_hitbox_17: 852549721595770237
+      Djinn_attack_hitbox_18: 9155379261158319577
+      Djinn_attack_hitbox_19: 3912392712385459664
+      Djinn_attack_hitbox_2: 431114108486372642
+      Djinn_attack_hitbox_20: 7651220498149522224
+      Djinn_attack_hitbox_21: -1623928511854246816
+      Djinn_attack_hitbox_22: 3407367594177858507
+      Djinn_attack_hitbox_23: -6938469034838257489
+      Djinn_attack_hitbox_24: -7273354455789506164
+      Djinn_attack_hitbox_25: -6900185574145551258
+      Djinn_attack_hitbox_26: -6458589444004122016
+      Djinn_attack_hitbox_27: -1520063329611771117
+      Djinn_attack_hitbox_28: -5920664138248115209
+      Djinn_attack_hitbox_29: 5355671860634954365
+      Djinn_attack_hitbox_3: -5277117261208532877
+      Djinn_attack_hitbox_30: -5986316358890848342
+      Djinn_attack_hitbox_31: -3280541817455311021
+      Djinn_attack_hitbox_32: 7032651639052021027
+      Djinn_attack_hitbox_33: -1627430419497414190
+      Djinn_attack_hitbox_34: 4443444525199828106
+      Djinn_attack_hitbox_35: -3358863641053602538
+      Djinn_attack_hitbox_36: 4345163440228504273
+      Djinn_attack_hitbox_37: 8986998209020384692
+      Djinn_attack_hitbox_38: 2158112116732012455
+      Djinn_attack_hitbox_39: -5200846194154312930
+      Djinn_attack_hitbox_4: 4488120310655826346
+      Djinn_attack_hitbox_40: -7350408499507563129
+      Djinn_attack_hitbox_41: -8879411402356774304
+      Djinn_attack_hitbox_42: -6965911608632619795
+      Djinn_attack_hitbox_43: -4606807451901124393
+      Djinn_attack_hitbox_44: 5292702035345549577
+      Djinn_attack_hitbox_45: -137646809782291288
+      Djinn_attack_hitbox_46: 185581148
+      Djinn_attack_hitbox_47: 98288541
+      Djinn_attack_hitbox_48: -1970628118
+      Djinn_attack_hitbox_49: 580211256
+      Djinn_attack_hitbox_5: -8161306300047294152
+      Djinn_attack_hitbox_50: -168427805
+      Djinn_attack_hitbox_51: -950090756
+      Djinn_attack_hitbox_6: 7200849441304014329
+      Djinn_attack_hitbox_7: -6304553483775765009
+      Djinn_attack_hitbox_8: -6749875761202751372
+      Djinn_attack_hitbox_9: 375090346564789086
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
