@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class SteeringBehaviour : MonoBehaviour
+public class cSteeringBehaviour : MonoBehaviour
 {
     [Header("Chase")] [SerializeField] private float chaseFactor = 1f;
     private Chase _chase;
