@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class SimpleFSM : MonoBehaviour
+public class CacFsm : MonoBehaviour
 {
     private enum FsmState
     {
@@ -13,17 +14,38 @@ public class SimpleFSM : MonoBehaviour
 
     private Chase _chase;
 
-    [SerializeField] private float timerDuration = 5;
-
+    [SerializeField] private float timerDurationFeel = 5;
+    [SerializeField] private float cooldownAttack = 5;
+    [SerializeField] private GameObject _gameObjectAttack;
+    [SerializeField] private string PlayerAttack;
+    
+    private CapsuleCollider2D _collider2D;
+    private Animator _animator;
     private FsmState _currentState = FsmState.Empty;
-    private SteeringBehaviour _motion;
-    private float timer;
+    private CacSteeringBehaviour _motion;
+    private float timerFeel;
+    private float timerAttack;
+    private bool haveAttacked = false;
+    private bool isHit = false;
+    private int hitCount;
 
+
+    private void AddCountHit()
+    {
+        hitCount++;
+    }
+    private void EndAttack()
+    {
+        _gameObjectAttack.SetActive(false);
+        haveAttacked = true;
+    }
 
     private void Start()
     {
-        _motion = GetComponent<SteeringBehaviour>();
+        _motion = GetComponent<CacSteeringBehaviour>();
         _chase = GetComponent<Chase>();
+        _animator = GetComponent<Animator>();
+        _collider2D = GetComponent<CapsuleCollider2D>();
         SetState(FsmState.Chase);
     }
 
@@ -31,6 +53,21 @@ public class SimpleFSM : MonoBehaviour
     {
         CheckTransitions(_currentState);
         OnStateUpdate(_currentState);
+        if (isHit && hitCount != 2)
+        {
+            _animator.SetBool("Hit", true);
+            _animator.SetInteger("HitCount", hitCount);
+            _collider2D.enabled = false;
+        }
+        else
+        {
+            isHit = false;
+            hitCount = 0;
+            _animator.SetBool("Hit", false);
+            _animator.SetInteger("HitCount", hitCount);
+            _collider2D.enabled = true;
+        }
+
     }
 
     private void CheckTransitions(FsmState state)
@@ -38,19 +75,19 @@ public class SimpleFSM : MonoBehaviour
         switch (state)
         {
             case FsmState.Chase:
-                if (_chase.IsHit)
+                if (isHit)
                     SetState(FsmState.Flee);
                 else if (_chase.IsGoodDistanceForAttack)
                     SetState(FsmState.Attack);
                 break;
             case FsmState.Flee:
-                if (timer > timerDuration)
+                if (timerFeel > timerDurationFeel)
                     SetState(FsmState.Chase);
                 break;
             case FsmState.Attack:
-                if (_chase.IsHit)
+                if (isHit)
                     SetState(FsmState.Flee);
-                else if (!_chase.IsGoodDistanceForAttack)
+                else if (!_chase.IsGoodDistanceForAttack && haveAttacked)
                     SetState(FsmState.Chase);
                 break;
             case FsmState.Empty:
@@ -71,10 +108,12 @@ public class SimpleFSM : MonoBehaviour
                 break;
             case FsmState.Flee:
                 _motion.FleeFactor = 1;
-                timer = 0;
+                timerFeel = 0;
                 break;
             case FsmState.Attack:
                 _motion.ChaseFactor = 1;
+                timerAttack = 0;
+                haveAttacked = false;
                 break;
             case FsmState.Empty:
             default:
@@ -113,9 +152,16 @@ public class SimpleFSM : MonoBehaviour
             case FsmState.Chase:
                 break;
             case FsmState.Flee:
-                timer += Time.deltaTime;
+                timerFeel += Time.deltaTime;
                 break;
             case FsmState.Attack:
+                timerAttack += Time.deltaTime;
+                if (timerAttack > cooldownAttack)
+                {
+                    timerAttack = 0;
+                    _animator.SetTrigger("Attack");
+                    _gameObjectAttack.SetActive(true);
+                }
                 break;
             case FsmState.Empty:
             default:
@@ -131,5 +177,14 @@ public class SimpleFSM : MonoBehaviour
         _currentState = newState;
         OnStateEnter(_currentState);
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag(PlayerAttack))
+        {
+            isHit = true;
+            hitCount = 0;
+        }
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class cSteeringBehaviour : MonoBehaviour
+public class CacSteeringBehaviour : MonoBehaviour
 {
     [Header("Chase")] [SerializeField] private float chaseFactor = 1f;
     private Chase _chase;
@@ -35,7 +35,6 @@ public class cSteeringBehaviour : MonoBehaviour
         if (chaseFactor > 0)
         {
             _chase.enabled = true;
-            _chase.IsHit = false;
             _chase.IsGoodDistanceForAttack = false;
         }
         else

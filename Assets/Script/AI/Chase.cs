@@ -9,8 +9,7 @@ public class Chase : MonoBehaviour
     [SerializeField] private Transform target;
     private float distanceToTarget;
     [SerializeField] private float stoppingDistanceThreshold;
-
-    /*Ne pourra pas être là a la fin*/ [Header("Temp Serializ")] [SerializeField] public bool IsHit = false;
+    
     public bool IsGoodDistanceForAttack = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

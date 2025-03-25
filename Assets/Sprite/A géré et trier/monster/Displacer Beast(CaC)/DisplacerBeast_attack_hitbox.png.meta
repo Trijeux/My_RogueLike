@@ -172,10 +172,10 @@ TextureImporter:
       name: DisplacerBeast_attack_hitbox_0
       rect:
         serializedVersion: 2
-        x: 44
-        y: 431
-        width: 56
-        height: 68
+        x: 0
+        y: 432
+        width: 144
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,10 +194,10 @@ TextureImporter:
       name: DisplacerBeast_attack_hitbox_1
       rect:
         serializedVersion: 2
-        x: 179
-        y: 431
-        width: 74
-        height: 38
+        x: 144
+        y: 432
+        width: 144
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,10 +216,10 @@ TextureImporter:
       name: DisplacerBeast_attack_hitbox_2
       rect:
         serializedVersion: 2
-        x: 317
-        y: 431
-        width: 41
-        height: 29
+        x: 288
+        y: 432
+        width: 144
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,10 +238,10 @@ TextureImporter:
       name: DisplacerBeast_attack_hitbox_3
       rect:
         serializedVersion: 2
-        x: 362
-        y: 431
-        width: 41
-        height: 29
+        x: 432
+        y: 432
+        width: 144
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,10 +260,10 @@ TextureImporter:
       name: DisplacerBeast_attack_hitbox_4
       rect:
         serializedVersion: 2
-        x: 461
-        y: 449
-        width: 11
-        height: 20
+        x: 0
+        y: 288
+        width: 144
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -282,10 +282,10 @@ TextureImporter:
       name: DisplacerBeast_attack_hitbox_5
       rect:
         serializedVersion: 2
-        x: 536
-        y: 449
-        width: 11
-        height: 20
+        x: 144
+        y: 288
+        width: 144
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -304,10 +304,10 @@ TextureImporter:
       name: DisplacerBeast_attack_hitbox_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 332
-        width: 55
-        height: 56
+        x: 288
+        y: 288
+        width: 144
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,10 +326,10 @@ TextureImporter:
       name: DisplacerBeast_attack_hitbox_7
       rect:
         serializedVersion: 2
-        x: 143
-        y: 323
-        width: 50
-        height: 62
+        x: 432
+        y: 288
+        width: 144
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -348,10 +348,10 @@ TextureImporter:
       name: DisplacerBeast_attack_hitbox_8
       rect:
         serializedVersion: 2
-        x: 296
-        y: 338
-        width: 53
-        height: 20
+        x: 0
+        y: 144
+        width: 144
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -370,10 +370,10 @@ TextureImporter:
       name: DisplacerBeast_attack_hitbox_9
       rect:
         serializedVersion: 2
-        x: 302
-        y: 323
-        width: 38
-        height: 20
+        x: 144
+        y: 144
+        width: 144
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -392,10 +392,10 @@ TextureImporter:
       name: DisplacerBeast_attack_hitbox_10
       rect:
         serializedVersion: 2
-        x: 470
-        y: 338
-        width: 26
-        height: 11
+        x: 288
+        y: 144
+        width: 144
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -414,10 +414,10 @@ TextureImporter:
       name: DisplacerBeast_attack_hitbox_11
       rect:
         serializedVersion: 2
-        x: 476
-        y: 323
-        width: 23
-        height: 11
+        x: 432
+        y: 144
+        width: 144
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -436,10 +436,10 @@ TextureImporter:
       name: DisplacerBeast_attack_hitbox_12
       rect:
         serializedVersion: 2
-        x: 89
-        y: 188
-        width: 56
-        height: 56
+        x: 0
+        y: 0
+        width: 144
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -458,10 +458,10 @@ TextureImporter:
       name: DisplacerBeast_attack_hitbox_13
       rect:
         serializedVersion: 2
-        x: 239
-        y: 179
-        width: 50
-        height: 62
+        x: 144
+        y: 0
+        width: 144
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -480,10 +480,10 @@ TextureImporter:
       name: DisplacerBeast_attack_hitbox_14
       rect:
         serializedVersion: 2
-        x: 371
-        y: 194
-        width: 53
-        height: 20
+        x: 288
+        y: 0
+        width: 144
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -502,10 +502,10 @@ TextureImporter:
       name: DisplacerBeast_attack_hitbox_15
       rect:
         serializedVersion: 2
-        x: 380
-        y: 179
-        width: 38
-        height: 20
+        x: 432
+        y: 0
+        width: 144
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -520,187 +520,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: DisplacerBeast_attack_hitbox_16
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 194
-        width: 26
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 56cef406e8ebffe70800000000000000
-      internalID: 9151242486550621285
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DisplacerBeast_attack_hitbox_17
-      rect:
-        serializedVersion: 2
-        x: 509
-        y: 179
-        width: 23
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 343aed675f10e4bc0800000000000000
-      internalID: -3797095282053831869
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DisplacerBeast_attack_hitbox_18
-      rect:
-        serializedVersion: 2
-        x: 44
-        y: 77
-        width: 56
-        height: 68
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 792460b6bd0c3b9e0800000000000000
-      internalID: -1606728593415191913
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DisplacerBeast_attack_hitbox_19
-      rect:
-        serializedVersion: 2
-        x: 179
-        y: 107
-        width: 74
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d60c3105389112b20800000000000000
-      internalID: 3107793269637234797
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DisplacerBeast_attack_hitbox_20
-      rect:
-        serializedVersion: 2
-        x: 317
-        y: 116
-        width: 41
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a209998277af5a3d0800000000000000
-      internalID: -3195872970860294102
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DisplacerBeast_attack_hitbox_21
-      rect:
-        serializedVersion: 2
-        x: 362
-        y: 116
-        width: 41
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 43c57526d63af3720800000000000000
-      internalID: 2828158781208615988
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DisplacerBeast_attack_hitbox_22
-      rect:
-        serializedVersion: 2
-        x: 461
-        y: 107
-        width: 11
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 057e9ec451661e740800000000000000
-      internalID: 5179533288123524944
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DisplacerBeast_attack_hitbox_23
-      rect:
-        serializedVersion: 2
-        x: 536
-        y: 107
-        width: 11
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9ef28dc79e27796e0800000000000000
-      internalID: -1830868376355328023
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1f91435e39ae33f4b82829b89d29726c
     internalID: 0
     vertices: []
     indices: 
@@ -718,15 +542,7 @@ TextureImporter:
       DisplacerBeast_attack_hitbox_13: 5284978462812165668
       DisplacerBeast_attack_hitbox_14: -5068460085445450420
       DisplacerBeast_attack_hitbox_15: -4645866844985234422
-      DisplacerBeast_attack_hitbox_16: 9151242486550621285
-      DisplacerBeast_attack_hitbox_17: -3797095282053831869
-      DisplacerBeast_attack_hitbox_18: -1606728593415191913
-      DisplacerBeast_attack_hitbox_19: 3107793269637234797
       DisplacerBeast_attack_hitbox_2: 8471524292359432816
-      DisplacerBeast_attack_hitbox_20: -3195872970860294102
-      DisplacerBeast_attack_hitbox_21: 2828158781208615988
-      DisplacerBeast_attack_hitbox_22: 5179533288123524944
-      DisplacerBeast_attack_hitbox_23: -1830868376355328023
       DisplacerBeast_attack_hitbox_3: 4032716146219819643
       DisplacerBeast_attack_hitbox_4: -9144757742491502902
       DisplacerBeast_attack_hitbox_5: 810302795657365888
