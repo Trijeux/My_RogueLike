@@ -72,17 +72,16 @@ namespace Script.Player
         
         private void UpdateLookPlayer()
         {
-            if (Mathf.Abs(_moveInput.y) >= Mathf.Abs(_moveInput.x))
+            if (Mathf.Abs(_moveInput.x) > 0 || Mathf.Abs(_moveInput.y) > 0)
             {
-                _state = _moveInput.y > 0 ? new StateValue(DirectionLook.Up, 0) : new StateValue(DirectionLook.Down, 1);
-            }
-            else if (Mathf.Abs(_moveInput.x) > 0)
-            {
-                _state = _moveInput.x > 0 ? new StateValue(DirectionLook.Left, 0.5f) : new StateValue(DirectionLook.Right, 0.5f);
-            }
-            else
-            {
-                _state = new StateValue(DirectionLook.Down, 1);
+                if (Mathf.Abs(_moveInput.y) >= Mathf.Abs(_moveInput.x))
+                {
+                    _state = _moveInput.y > 0 ? new StateValue(DirectionLook.Up, 0) : new StateValue(DirectionLook.Down, 1);
+                }
+                else if (Mathf.Abs(_moveInput.x) > 0)
+                {
+                    _state = _moveInput.x > 0 ? new StateValue(DirectionLook.Left, 0.5f) : new StateValue(DirectionLook.Right, 0.5f);
+                }
             }
             
             transform.rotation = _state.State switch
@@ -98,7 +97,6 @@ namespace Script.Player
             {
                 switch (_state.State)
                 {
-
                     case DirectionLook.Up:
                         attackUp.SetActive(true);
                         attackRightLeft.SetActive(false);

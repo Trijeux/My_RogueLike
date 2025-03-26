@@ -183,6 +183,7 @@ public class CacFsm : MonoBehaviour
     {
         if (other.CompareTag(PlayerAttack))
         {
+            _gameObjectAttack.SetActive(false);
             isHit = true;
             hitCount = 0;
         }

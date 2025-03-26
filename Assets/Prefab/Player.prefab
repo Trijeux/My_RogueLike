@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 7062082390075733338}
   - component: {fileID: 8706950716200458616}
   - component: {fileID: 6019626211970481167}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 8562151512557340855}
   m_Layer: 0
   m_Name: AttackRightLeft
-  m_TagString: Untagged
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -401,7 +401,7 @@ GameObject:
   - component: {fileID: 5093451262789266402}
   m_Layer: 0
   m_Name: AttackDown
-  m_TagString: Untagged
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 6931365486246108358}
   m_Layer: 0
   m_Name: AttackUp
-  m_TagString: Untagged
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

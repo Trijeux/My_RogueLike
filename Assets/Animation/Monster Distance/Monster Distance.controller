@@ -22,7 +22,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c4bde03a35349cd4ab8a37b78a44e110, type: 2}
+  m_Motion: {fileID: 7400000, guid: b37b5cba882552c4ea8aac794a2569ae, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -137,7 +137,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DisplacerBeast_idle_0
+  m_Name: Monster Distance
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Attack
@@ -242,7 +242,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 53eb5d597e0e149498aaca708993f557, type: 2}
+  m_Motion: {fileID: 7400000, guid: 5a4b6fd06b062044e8f7d72cad63dc6f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -298,7 +298,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e216853e2ebdce3468192b984d144592, type: 2}
+  m_Motion: {fileID: 7400000, guid: 3a7ebbd45611030488c289d5c523952e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

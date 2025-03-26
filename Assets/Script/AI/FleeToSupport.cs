@@ -2,7 +2,7 @@
 using Pathfinding;
 using UnityEngine.Serialization;
 
-public class Flee : MonoBehaviour
+public class FleeToSupport : MonoBehaviour
 {
     private AIPath aiPath;
     [SerializeField] private float moveSpeed;

@@ -1,0 +1,38 @@
+using System;
+using UnityEngine;
+
+public class EnemyBullets : MonoBehaviour
+{
+    [SerializeField] private int damage = 1;
+    [SerializeField] private float speed;
+    private Rigidbody2D _rigidbody2D;
+    private GameObject _character;
+    private Vector2 _direction;
+    
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        _character = GameObject.FindGameObjectWithTag("Player");
+        
+        _direction =  _character.transform.position - transform.position;
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+    }
+
+    private void FixedUpdate()
+    {
+        _rigidbody2D.linearVelocity = _direction * speed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Obstacle"))
+        {
+            Destroy(gameObject);
+        }
+        
+        if (other.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
+    }
+}
