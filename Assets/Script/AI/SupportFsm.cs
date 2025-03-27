@@ -1,17 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class DistanceFsm : MonoBehaviour
+public class SupportFsm : MonoBehaviour
 {
     private enum FsmState
     {
         Empty,
-        Chase,
+        ChaseFriend,
         Flee,
-        Attack
+        Attach
     }
 
     private Chase _chase;
@@ -61,7 +62,7 @@ public class DistanceFsm : MonoBehaviour
         _collider2D = GetComponentInParent<CapsuleCollider2D>();
         _collider2DTrigger = GetComponent<CapsuleCollider2D>();
         target = _chase.Target.GetComponentInParent<Transform>();
-        SetState(FsmState.Chase);
+        SetState(FsmState.ChaseFriend);
         _contactFilter2D.SetLayerMask(_layerMask);
     }
 
@@ -115,21 +116,19 @@ public class DistanceFsm : MonoBehaviour
     {
         switch (state)
         {
-            case FsmState.Chase:
+            case FsmState.ChaseFriend:
                 if (isHit || distanceToTarget < distanceFeel)
                     SetState(FsmState.Flee);
-                else if (_chase.IsGoodDistanceForAttack && !canNotAttack)
-                    SetState(FsmState.Attack);
+                else if (_chase.IsGoodDistanceForAttack)
+                    SetState(FsmState.Attach);
                 break;
             case FsmState.Flee:
                 if (canNotAttack || timerFeel > timerDurationFeel)
-                    SetState(FsmState.Chase);
+                    SetState(FsmState.ChaseFriend);
                 break;
-            case FsmState.Attack:
-                if (isHit || distanceToTarget < distanceFeel && !canNotAttack)
-                    SetState(FsmState.Flee);
-                else if (!_chase.IsGoodDistanceForAttack)
-                    SetState(FsmState.Chase);
+            case FsmState.Attach:
+                if (isHit || distanceToTarget < distanceFeel || canNotAttack || !_chase.IsGoodDistanceForAttack)
+                    SetState(FsmState.ChaseFriend);
                 break;
             case FsmState.Empty:
             default:
@@ -142,7 +141,7 @@ public class DistanceFsm : MonoBehaviour
     {
         switch (state)
         {
-            case FsmState.Chase:
+            case FsmState.ChaseFriend:
                 _motion.ChaseFactor = 1;
                 break;
             case FsmState.Flee:
@@ -150,7 +149,7 @@ public class DistanceFsm : MonoBehaviour
                 _collider2D.enabled = false;
                 timerFeel = 0;
                 break;
-            case FsmState.Attack:
+            case FsmState.Attach:
                 _motion.ChaseFactor = 1;
                 timerAttack = 0;
                 break;
@@ -165,14 +164,14 @@ public class DistanceFsm : MonoBehaviour
     {
         switch (state)
         {
-            case FsmState.Chase:
+            case FsmState.ChaseFriend:
                 _motion.ChaseFactor = 0;
                 break;
             case FsmState.Flee:
                 _collider2D.enabled = true;
                 _motion.FleeFactor = 0;
                 break;
-            case FsmState.Attack:
+            case FsmState.Attach:
                 _motion.ChaseFactor = 0;
                 break;
             case FsmState.Empty:
@@ -187,12 +186,12 @@ public class DistanceFsm : MonoBehaviour
 
         switch (state)
         {
-            case FsmState.Chase:
+            case FsmState.ChaseFriend:
                 break;
             case FsmState.Flee:
                 timerFeel += Time.deltaTime;
                 break;
-            case FsmState.Attack:
+            case FsmState.Attach:
                 timerAttack += Time.deltaTime;
                 if (timerAttack > cooldownAttack)
                 {

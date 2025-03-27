@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 3688203146542884843}
   - component: {fileID: 2901009080159150453}
   - component: {fileID: -8424985636375188251}
-  m_Layer: 6
-  m_Name: Ennemie Distance 1
+  m_Layer: 0
+  m_Name: Ennemie Distance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 8443593207721941128}
   - component: {fileID: 3888082913569198026}
   - component: {fileID: 5507925305787872100}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Renderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -395,7 +395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6196145147223952769}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}

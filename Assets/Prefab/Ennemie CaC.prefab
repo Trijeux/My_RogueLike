@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5801470266806511541}
   - component: {fileID: 6391073878955287009}
   - component: {fileID: 2818825253209711227}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Attack Left
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 6511906192906210137}
   - component: {fileID: 7526181268764043217}
   - component: {fileID: 2491468623871894283}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Attack Right
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 3343490306422966297}
   - component: {fileID: 514990141659837304}
   - component: {fileID: 3870865286945134742}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Attack Up
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -480,7 +480,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3534100897149377181}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -518,7 +518,7 @@ GameObject:
   - component: {fileID: 8194362037428007879}
   - component: {fileID: 2555242529557895426}
   - component: {fileID: 7568963355415643004}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Attack Down
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -683,7 +683,7 @@ GameObject:
   - component: {fileID: 8144829523343324178}
   - component: {fileID: 1069067312235755479}
   - component: {fileID: -2133946106532544438}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ennemie CaC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
