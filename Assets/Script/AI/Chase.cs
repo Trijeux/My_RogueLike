@@ -9,7 +9,9 @@ public class Chase : MonoBehaviour
     [SerializeField] private float moveSpeed;
     private float distanceToTarget;
     [SerializeField] private float stoppingDistanceThreshold;
-    public bool IsGoodDistanceForAttack = false;
+    private bool isGoodDistanceForAttack;
+
+    public bool IsGoodDistanceForAttack => isGoodDistanceForAttack;
 
     public Transform Target { get; private set; }
 
@@ -37,7 +39,7 @@ public class Chase : MonoBehaviour
         {
             //Chase when the player is far
             aiPath.destination = transform.position;
-            IsGoodDistanceForAttack = true;
+            isGoodDistanceForAttack = true;
             //Chase when player is near
             // aiPath.destination = target.position;
         }
@@ -46,7 +48,7 @@ public class Chase : MonoBehaviour
             //Chase when the player is far
             
             aiPath.destination = Target.position;
-            IsGoodDistanceForAttack = false;
+            isGoodDistanceForAttack = false;
             //Chase when player is near
             // aiPath.destination=transform.position;
         }

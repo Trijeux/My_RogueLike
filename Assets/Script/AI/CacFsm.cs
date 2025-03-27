@@ -19,7 +19,8 @@ public class CacFsm : MonoBehaviour
     [SerializeField] private GameObject _gameObjectAttack;
     [SerializeField] private string PlayerAttack;
     
-    private CapsuleCollider2D _collider2D;
+    private CapsuleCollider2D _collider2DTrigger;
+    [SerializeField]private CapsuleCollider2D _collider2D;
     private Animator _animator;
     private FsmState _currentState = FsmState.Empty;
     private CacSteeringBehaviour _motion;
@@ -45,7 +46,7 @@ public class CacFsm : MonoBehaviour
         _motion = GetComponent<CacSteeringBehaviour>();
         _chase = GetComponent<Chase>();
         _animator = GetComponent<Animator>();
-        _collider2D = GetComponent<CapsuleCollider2D>();
+        _collider2DTrigger = GetComponent<CapsuleCollider2D>();
         SetState(FsmState.Chase);
     }
 
@@ -57,7 +58,7 @@ public class CacFsm : MonoBehaviour
         {
             _animator.SetBool("Hit", true);
             _animator.SetInteger("HitCount", hitCount);
-            _collider2D.enabled = false;
+            _collider2DTrigger.enabled = false;
         }
         else
         {
@@ -65,7 +66,7 @@ public class CacFsm : MonoBehaviour
             hitCount = 0;
             _animator.SetBool("Hit", false);
             _animator.SetInteger("HitCount", hitCount);
-            _collider2D.enabled = true;
+            _collider2DTrigger.enabled = true;
         }
 
     }
@@ -108,6 +109,7 @@ public class CacFsm : MonoBehaviour
                 break;
             case FsmState.Flee:
                 _motion.FleeFactor = 1;
+                _collider2D.enabled = false;
                 timerFeel = 0;
                 break;
             case FsmState.Attack:
@@ -133,6 +135,7 @@ public class CacFsm : MonoBehaviour
                 break;
             case FsmState.Flee:
                 _motion.FleeFactor = 0;
+                _collider2D.enabled = true;
                 break;
             case FsmState.Attack:
                 _motion.ChaseFactor = 0;

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5801470266806511541}
   - component: {fileID: 6391073878955287009}
   - component: {fileID: 2818825253209711227}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Attack Left
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 6511906192906210137}
   - component: {fileID: 7526181268764043217}
   - component: {fileID: 2491468623871894283}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Attack Right
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 3343490306422966297}
   - component: {fileID: 514990141659837304}
   - component: {fileID: 3870865286945134742}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Attack Up
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -480,7 +480,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3534100897149377181}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -518,7 +518,7 @@ GameObject:
   - component: {fileID: 8194362037428007879}
   - component: {fileID: 2555242529557895426}
   - component: {fileID: 7568963355415643004}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Attack Down
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -681,7 +681,9 @@ GameObject:
   - component: {fileID: 531556660476887049}
   - component: {fileID: 8037206633504644791}
   - component: {fileID: 8144829523343324178}
-  m_Layer: 0
+  - component: {fileID: 1069067312235755479}
+  - component: {fileID: -2133946106532544438}
+  m_Layer: 6
   m_Name: Ennemie CaC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -842,8 +844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  stoppingDistanceThreshold: 1.5
-  IsGoodDistanceForAttack: 0
+  stoppingDistanceThreshold: 1.7
 --- !u!114 &7890160118302488504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -874,6 +875,7 @@ MonoBehaviour:
   cooldownAttack: 1
   _gameObjectAttack: {fileID: 6531679563914218272}
   PlayerAttack: PlayerAttack
+  _collider2D: {fileID: 1069067312235755479}
 --- !u!114 &531556660476887049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -947,3 +949,67 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!70 &1069067312235755479
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8261438605082753601}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -0.008788109}
+  m_Size: {x: 2.7012076, y: 2.7099957}
+  m_Direction: 0
+--- !u!50 &-2133946106532544438
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8261438605082753601}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

@@ -26,6 +26,7 @@ public class DistanceFsm : MonoBehaviour
     [SerializeField] private GameObject arrow;
     [SerializeField] private GameObject firePoint;
 
+    private CapsuleCollider2D _collider2DTrigger;
     private CapsuleCollider2D _collider2D;
 
     private Transform target;
@@ -59,7 +60,8 @@ public class DistanceFsm : MonoBehaviour
         _motion = GetComponentInParent<DistanceSteeringBehaviour>();
         _chase = GetComponentInParent<Chase>();
         _animator = GetComponent<Animator>();
-        _collider2D = GetComponent<CapsuleCollider2D>();
+        _collider2D = GetComponentInParent<CapsuleCollider2D>();
+        _collider2DTrigger = GetComponent<CapsuleCollider2D>();
         target = _chase.Target.GetComponentInParent<Transform>();
         SetState(FsmState.Chase);
         _contactFilter2D.SetLayerMask(_layerMask);
@@ -74,7 +76,7 @@ public class DistanceFsm : MonoBehaviour
         {
             _animator.SetBool("Hit", true);
             _animator.SetInteger("HitCount", hitCount);
-            _collider2D.enabled = false;
+            _collider2DTrigger.enabled = false;
         }
         else
         {
@@ -82,7 +84,7 @@ public class DistanceFsm : MonoBehaviour
             hitCount = 0;
             _animator.SetBool("Hit", false);
             _animator.SetInteger("HitCount", hitCount);
-            _collider2D.enabled = true;
+            _collider2DTrigger.enabled = true;
         }
     }
 
@@ -145,6 +147,7 @@ public class DistanceFsm : MonoBehaviour
                 break;
             case FsmState.Flee:
                 _motion.FleeFactor = 1;
+                _collider2D.enabled = false;
                 timerFeel = 0;
                 break;
             case FsmState.Attack:
@@ -166,6 +169,7 @@ public class DistanceFsm : MonoBehaviour
                 _motion.ChaseFactor = 0;
                 break;
             case FsmState.Flee:
+                _collider2D.enabled = true;
                 _motion.FleeFactor = 0;
                 break;
             case FsmState.Attack:

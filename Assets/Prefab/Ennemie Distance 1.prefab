@@ -14,7 +14,9 @@ GameObject:
   - component: {fileID: 6137364450428765796}
   - component: {fileID: 4915791766248449817}
   - component: {fileID: 3688203146542884843}
-  m_Layer: 0
+  - component: {fileID: 2901009080159150453}
+  - component: {fileID: -8424985636375188251}
+  m_Layer: 6
   m_Name: Ennemie Distance 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,8 +64,8 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 4294967295
     useGraphRaycasting: 0
-  traversableTags: -1
-  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  traversableTags: -3
+  tagPenalties: 0000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
 --- !u!114 &252878879534977916
@@ -121,8 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  stoppingDistanceThreshold: 4
-  IsGoodDistanceForAttack: 0
+  stoppingDistanceThreshold: 5
 --- !u!114 &4915791766248449817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  stoppingDistanceThreshold: 3
+  stoppingDistanceThreshold: 4
 --- !u!114 &3688203146542884843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +152,70 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseFactor: 1
   fleeFactor: 0
+--- !u!70 &2901009080159150453
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120470673037986928}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.0041564303, y: 0.0491027}
+  m_Size: {x: 2.985616, y: 3.8109517}
+  m_Direction: 0
+--- !u!50 &-8424985636375188251
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120470673037986928}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1732816410834750029
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,7 +229,7 @@ GameObject:
   - component: {fileID: 8443593207721941128}
   - component: {fileID: 3888082913569198026}
   - component: {fileID: 5507925305787872100}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Renderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,8 +341,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownAttack: 2
+  timerDurationFeel: 5
   PlayerAttack: PlayerAttack
-  distanceFeel: 3
+  distanceFeel: 4
   _layerMask:
     serializedVersion: 2
     m_Bits: 192
@@ -317,8 +383,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -1.1212039}
-  m_Size: {x: 2.9999998, y: 3.8194036}
+  m_Offset: {x: 0.014230013, y: -1.1306903}
+  m_Size: {x: 3.502791, y: 4.1040025}
   m_Direction: 0
 --- !u!1 &8610075256173014070
 GameObject:
@@ -329,7 +395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6196145147223952769}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}

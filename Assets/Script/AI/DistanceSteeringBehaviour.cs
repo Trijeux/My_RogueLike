@@ -36,7 +36,6 @@ public class DistanceSteeringBehaviour : MonoBehaviour
         if (chaseFactor > 0)
         {
             _chase.enabled = true;
-            _chase.IsGoodDistanceForAttack = false;
         }
         else
         {
