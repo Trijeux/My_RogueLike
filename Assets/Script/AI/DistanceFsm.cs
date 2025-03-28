@@ -26,7 +26,9 @@ public class DistanceFsm : MonoBehaviour
 
     private CapsuleCollider2D _collider2DTrigger;
     [SerializeField]private CapsuleCollider2D _collider2D;
-
+    [SerializeField] private ActiveChild _activeChild;
+    [SerializeField] private GameObject _Child;
+    
     private Transform target;
 
     private Animator _animator;
@@ -69,8 +71,12 @@ public class DistanceFsm : MonoBehaviour
         DetectionWallForAttack();
         CheckTransitions(_currentState);
         OnStateUpdate(_currentState);
-        if (isHit && hitCount != 2)
+        if (isHit && hitCount != 2 && !_Child.activeSelf)
         {
+            if (_Child.activeSelf)
+            {
+                _activeChild.Deactive();
+            }
             _animator.SetBool("Hit", true);
             _animator.SetInteger("HitCount", hitCount);
             _collider2DTrigger.enabled = false;

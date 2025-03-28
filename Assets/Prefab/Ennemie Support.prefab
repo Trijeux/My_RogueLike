@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1372929090491861928}
   - component: {fileID: 5837624252528615100}
   - component: {fileID: 6855583940572426498}
+  - component: {fileID: 1995453549605139533}
   - component: {fileID: 5420830541163382477}
   m_Layer: 0
   m_Name: Renderer
@@ -111,6 +112,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1995453549605139533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639984764015551034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78f18478a0f54304eaa71313cebb41b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownGiveChild: 5
+  PlayerAttack: PlayerAttack
 --- !u!70 &5420830541163382477
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -160,7 +175,7 @@ GameObject:
   - component: {fileID: 484781850187892867}
   - component: {fileID: 8011245678440062792}
   - component: {fileID: 1438639828098401312}
-  - component: {fileID: 3129146591574756293}
+  - component: {fileID: 5291443562120209977}
   - component: {fileID: 3113709099421820271}
   m_Layer: 0
   m_Name: Ennemie Support
@@ -269,45 +284,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   stoppingDistanceThreshold: 1.5
-  _collider2DTrigger: {fileID: 5420830541163382477}
-  _collider2D: {fileID: 3129146591574756293}
---- !u!70 &3129146591574756293
-CapsuleCollider2D:
+--- !u!114 &5291443562120209977
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1140901085348073883}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: -0.004156381, y: 0.03641367}
-  m_Size: {x: 2.985616, y: 4.3311453}
-  m_Direction: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 595df946104e9bb43a8bfe21bc1449f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseFriendFactor: 1
+  attachFactor: 0
 --- !u!50 &3113709099421820271
 Rigidbody2D:
   serializedVersion: 5

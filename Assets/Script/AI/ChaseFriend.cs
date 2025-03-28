@@ -12,8 +12,7 @@ public class ChaseFriend : MonoBehaviour
     private float distanceToTarget;
     [SerializeField] private float stoppingDistanceThreshold;
     private bool isGoodDistanceForGrap;
-    [SerializeField]private CapsuleCollider2D _collider2DTrigger;
-    [SerializeField] private CapsuleCollider2D _collider2D;
+    private CapsuleCollider2D _collider2DTrigger;
 
     public bool IsGoodDistanceForGrap => isGoodDistanceForGrap;
 
@@ -25,6 +24,7 @@ public class ChaseFriend : MonoBehaviour
         aiPath = GetComponent<AIPath>();
         var enemyManager = GameObject.FindGameObjectWithTag("EnemyManager");
         _ennemieManager = enemyManager.GetComponent<EnnemieManager>();
+        _collider2DTrigger = GetComponentInChildren<CapsuleCollider2D>();
     }
 
     // Update is called once per frame
@@ -44,8 +44,12 @@ public class ChaseFriend : MonoBehaviour
                 }
                 else
                 {
-                    Target = _ennemieManager.Monsters[random].GetComponent<Transform>();
-                    isValideEnemy = true;
+                    var targetChild = _ennemieManager.Monsters[random].GetComponent<ActiveChild>();
+                    if (!targetChild.supportIsHere)
+                    {
+                        Target = _ennemieManager.Monsters[random].GetComponent<Transform>();
+                        isValideEnemy = true;
+                    }
                 }
                 if (numberTest >= 100)
                 {
@@ -53,7 +57,7 @@ public class ChaseFriend : MonoBehaviour
                 }
             } while (!isValideEnemy);
         }
-        else
+        else if(Target != null)
         {
             aiPath.maxSpeed = moveSpeed;
         
@@ -68,7 +72,6 @@ public class ChaseFriend : MonoBehaviour
             else
             {
                 transform.position = Target.position + new Vector3(0.5f,0.5f,0);
-                _collider2D.enabled = false;
                 _collider2DTrigger.enabled = false;
                 isGoodDistanceForGrap = true;
             }

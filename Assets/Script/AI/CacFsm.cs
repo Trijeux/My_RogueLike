@@ -21,6 +21,8 @@ public class CacFsm : MonoBehaviour
     
     private CapsuleCollider2D _collider2DTrigger;
     [SerializeField]private CapsuleCollider2D _collider2D;
+    [SerializeField] private ActiveChild _activeChild;
+    [SerializeField] private GameObject _Child;
     private Animator _animator;
     private FsmState _currentState = FsmState.Empty;
     private CacSteeringBehaviour _motion;
@@ -56,6 +58,10 @@ public class CacFsm : MonoBehaviour
         OnStateUpdate(_currentState);
         if (isHit && hitCount != 2)
         {
+            if (_Child.activeSelf)
+            {
+                _activeChild.Deactive();
+            }
             _animator.SetBool("Hit", true);
             _animator.SetInteger("HitCount", hitCount);
             _collider2DTrigger.enabled = false;
