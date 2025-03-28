@@ -71,7 +71,7 @@ public class DistanceFsm : MonoBehaviour
         DetectionWallForAttack();
         CheckTransitions(_currentState);
         OnStateUpdate(_currentState);
-        if (isHit && hitCount != 2 && !_Child.activeSelf)
+        if (isHit && hitCount != 2)
         {
             if (_Child.activeSelf)
             {
