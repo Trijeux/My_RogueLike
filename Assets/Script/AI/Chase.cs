@@ -17,8 +17,8 @@ public class Chase : MonoBehaviour
 
     private void Awake()
     {
-        var targetList = GameObject.FindGameObjectsWithTag("Player");
-        Target = targetList[0].GetComponent<Transform>();
+        var targetList = GameObject.FindGameObjectWithTag("Player");
+        Target = targetList.GetComponent<Transform>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

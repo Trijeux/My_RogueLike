@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class EnemyBullets : MonoBehaviour
 {
-    [SerializeField] private int damage = 1;
     [SerializeField] private float speed;
     private Rigidbody2D _rigidbody2D;
     private GameObject _character;

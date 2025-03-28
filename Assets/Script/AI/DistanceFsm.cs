@@ -25,7 +25,7 @@ public class DistanceFsm : MonoBehaviour
     [SerializeField] private GameObject firePoint;
 
     private CapsuleCollider2D _collider2DTrigger;
-    private CapsuleCollider2D _collider2D;
+    [SerializeField]private CapsuleCollider2D _collider2D;
 
     private Transform target;
 
@@ -58,7 +58,6 @@ public class DistanceFsm : MonoBehaviour
         _motion = GetComponentInParent<DistanceSteeringBehaviour>();
         _chase = GetComponentInParent<Chase>();
         _animator = GetComponent<Animator>();
-        _collider2D = GetComponentInParent<CapsuleCollider2D>();
         _collider2DTrigger = GetComponent<CapsuleCollider2D>();
         target = _chase.Target.GetComponentInParent<Transform>();
         SetState(FsmState.Chase);
