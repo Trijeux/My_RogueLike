@@ -72,7 +72,10 @@ public class SupportFsm : MonoBehaviour
             hitCount = 0;
             _animator.SetBool("Hit", false);
             _animator.SetInteger("HitCount", hitCount);
-            _collider2DTrigger.enabled = true;
+            if (_currentState != FsmState.Attach)
+            {
+                _collider2DTrigger.enabled = true;
+            }
         }
     }
 
@@ -104,6 +107,7 @@ public class SupportFsm : MonoBehaviour
                 break;
             case FsmState.Attach:
                 _motion.ChaseFactor = 1;
+                _collider2DTrigger.enabled = false;
                 timerGiveChild = 0;
                 break;
             case FsmState.Empty:
@@ -122,6 +126,7 @@ public class SupportFsm : MonoBehaviour
                 break;
             case FsmState.Attach:
                 _motion.ChaseFactor = 0;
+                _collider2DTrigger.enabled = false;
                 break;
             case FsmState.Empty:
             default:

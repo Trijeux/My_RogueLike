@@ -19,6 +19,10 @@ public class EnnemieManager : MonoBehaviour
     {
         if (currentMonster != transform.childCount)
         {
+            if (currentMonster > transform.childCount)
+            {
+                currentMonster = 0;
+            }
             Monsters.Clear();
             for (int i = 0; i <= currentMonster; i++)
             {
