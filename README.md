@@ -5,7 +5,7 @@ Pour ouvrir la scène, allez dans Scenes et ouvrez IA Salle Test.
 
 Des boutons à cliquer avec la souris sont là pour faire apparaître les ennemis et les faire disparaître.
 
-Contrôles :
+Contrôles :    
 WASD / Pad Directionnel = Mouvement
 
 J / Bouton Xbox X (PS4 Carré) = Attaque
