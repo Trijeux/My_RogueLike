@@ -10,6 +10,7 @@ public class Spawner : MonoBehaviour
 
     [SerializeField] private GameObject cacEnemy;
     [SerializeField] private GameObject distanceEnemy;
+    [SerializeField] private GameObject SupportEnemy;
 
     public void SpawnCac()
     {
@@ -21,6 +22,11 @@ public class Spawner : MonoBehaviour
         Instantiate(distanceEnemy, spawnerDistance.transform.position, Quaternion.identity, enemyManager.transform);
     }
 
+    public void SpawnSupport()
+    {
+        Instantiate(SupportEnemy, spawnerSupport.transform.position, Quaternion.identity, enemyManager.transform);
+    }
+    
     public void AllDispawn()
     {
         for (int i = enemyManager.transform.childCount - 1; i >= 0; i--)
