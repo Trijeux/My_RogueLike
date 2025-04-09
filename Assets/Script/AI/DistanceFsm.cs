@@ -42,6 +42,7 @@ public class DistanceFsm : MonoBehaviour
     private ContactFilter2D _contactFilter2D;
     private List<Collider2D> _colliders = new List<Collider2D>();
     private bool canNotAttack;
+    private Vector3 scale;
 
     private void AddCountHit()
     {
@@ -64,6 +65,7 @@ public class DistanceFsm : MonoBehaviour
         target = _chase.Target.GetComponentInParent<Transform>();
         SetState(FsmState.Chase);
         _contactFilter2D.SetLayerMask(_layerMask);
+        scale = transform.parent.localScale;
     }
 
     private void Update()
@@ -88,6 +90,15 @@ public class DistanceFsm : MonoBehaviour
             _animator.SetBool("Hit", false);
             _animator.SetInteger("HitCount", hitCount);
             _collider2DTrigger.enabled = true;
+        }
+
+        if (_chase.Target.position.x > transform.parent.position.x)
+        {
+            transform.parent.localScale = new Vector3(-scale.x, scale.y, scale.z);
+        }
+        else
+        {
+            transform.parent.localScale = new Vector3(scale.x, scale.y, scale.z);
         }
     }
 

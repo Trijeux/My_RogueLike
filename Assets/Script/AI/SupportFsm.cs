@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Mathematics;
@@ -19,9 +20,11 @@ public class SupportFsm : MonoBehaviour
 
     [SerializeField] private float cooldownGiveChild = 5;
     [SerializeField] private string PlayerAttack;
+    [SerializeField] private float cooldownExplotion;
+    [SerializeField] private GameObject Explotion;
+
 
     private CapsuleCollider2D _collider2DTrigger;
-
     private ActiveChild targetChild;
 
     private Animator _animator;
@@ -30,7 +33,14 @@ public class SupportFsm : MonoBehaviour
     private float timerGiveChild;
     private bool isHit = false;
     private int hitCount;
+    private bool explotionActive = false;
+    private float timeExplotion = 0;
 
+
+    private void destroyKamikaze()
+    {
+        Destroy(transform.parent.gameObject);
+    }
     private void AddCountHit()
     {
         hitCount++;
@@ -57,7 +67,7 @@ public class SupportFsm : MonoBehaviour
             targetChild = _chaseFriend.Target.GetComponentInParent<ActiveChild>();
             targetChild.supportIsHere = true;
         }
-        
+
         CheckTransitions(_currentState);
         OnStateUpdate(_currentState);
         if (isHit && hitCount != 2)
@@ -76,6 +86,26 @@ public class SupportFsm : MonoBehaviour
             {
                 _collider2DTrigger.enabled = true;
             }
+        }
+
+        if (_chaseFriend.KamikazeMod && !explotionActive)
+        {
+            explotionActive = true;
+            _animator.SetBool("WhilExploid",true);
+        }
+
+        if (explotionActive)
+        {
+            if (cooldownExplotion <= timeExplotion)
+            {
+                timeExplotion = 0;
+                _chaseFriend.explotion = true;
+                _collider2DTrigger.enabled = false;
+                Explotion.SetActive(true);
+                _animator.SetBool("WhilExploid",false);
+                _animator.SetBool("Explose", true);
+            }
+            timeExplotion += Time.deltaTime;
         }
     }
 

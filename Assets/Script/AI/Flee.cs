@@ -38,7 +38,7 @@ public class Flee : MonoBehaviour
             //Chase when the player is far
             var destination = transform.position - target.position;
             
-            aiPath.destination = destination;
+            aiPath.destination = destination.normalized * 5;
             
             //Chase when player is near
             // aiPath.destination=transform.position;

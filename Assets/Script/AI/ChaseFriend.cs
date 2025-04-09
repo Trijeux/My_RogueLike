@@ -13,10 +13,21 @@ public class ChaseFriend : MonoBehaviour
     [SerializeField] private float stoppingDistanceThreshold;
     private bool isGoodDistanceForGrap;
     private CapsuleCollider2D _collider2DTrigger;
+    private bool kamikazeMod = false;
+    public bool explotion = false;
 
     public bool IsGoodDistanceForGrap => isGoodDistanceForGrap;
 
+    public bool KamikazeMod => kamikazeMod;
+
     public Transform Target { get; private set; }
+    public Transform TargetPlayer { get; private set; }
+
+    private void Awake()
+    {
+        var targetList = GameObject.FindGameObjectWithTag("Player");
+        TargetPlayer = targetList.GetComponent<Transform>();
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
@@ -30,7 +41,7 @@ public class ChaseFriend : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Target == null && _ennemieManager.Monsters.Count > 0)
+        if (Target == null && _ennemieManager.Monsters.Count > 0 && !kamikazeMod)
         {
             isGoodDistanceForGrap = false;
             var isValideEnemy = false;
@@ -54,8 +65,28 @@ public class ChaseFriend : MonoBehaviour
                 if (numberTest >= 100)
                 {
                     isValideEnemy = true;
+                    kamikazeMod = true;
                 }
             } while (!isValideEnemy);
+        }
+        else if (kamikazeMod && !explotion)
+        {
+            aiPath.maxSpeed = moveSpeed;
+        
+            distanceToTarget = Vector3.Distance(transform.position, TargetPlayer.position);
+            if (distanceToTarget > stoppingDistanceThreshold && !isGoodDistanceForGrap)
+            {
+            
+                aiPath.destination = TargetPlayer.position;
+                isGoodDistanceForGrap = false;
+          
+            }
+            else
+            {
+                transform.position = TargetPlayer.position;
+                _collider2DTrigger.enabled = false;
+                isGoodDistanceForGrap = true;
+            }
         }
         else if(Target != null)
         {
@@ -75,6 +106,10 @@ public class ChaseFriend : MonoBehaviour
                 _collider2DTrigger.enabled = false;
                 isGoodDistanceForGrap = true;
             }
+        }
+        else
+        {
+            aiPath.destination = transform.position;
         }
     }
 }
