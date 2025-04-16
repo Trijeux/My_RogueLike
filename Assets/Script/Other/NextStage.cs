@@ -10,6 +10,7 @@ public class NextStage : MonoBehaviour
 
 	private DungeonGeneratorGrid2D generator;
 	private bool _goodGenerator = false;
+	private ChageEtage _ui;
 
     #endregion
 
@@ -25,13 +26,23 @@ public class NextStage : MonoBehaviour
     {
 	    if (other.CompareTag("Player"))
 	    {
+		    _ui.SetEtage();
+		    _ui.ActiveSwitchDungeon();
 		    generator.Generate();
 	    }
     }
 
     private void Start()
     {
-	    
+	    do
+	    {
+		    var targetList = GameObject.FindGameObjectWithTag("UI");
+		    
+		    if (targetList != null)
+		    {
+			    _ui = targetList.GetComponent<ChageEtage>();
+		    }
+	    } while (_ui == null);
     }
 	
     private void Update()

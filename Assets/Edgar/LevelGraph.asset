@@ -166,6 +166,7 @@ MonoBehaviour:
   DefaultIndividualRoomTemplates:
   - {fileID: 4180655347275692048, guid: 90ec75925c7b62f4388fb5458f97b5b2, type: 3}
   - {fileID: 4180655347275692048, guid: 7f4af0394425ba74a9133177cb705716, type: 3}
+  - {fileID: 4180655347275692048, guid: 2a3394dee889ed84f96703a857f318be, type: 3}
   DefaultRoomTemplateSets: []
   Rooms:
   - {fileID: 3601717092656767001}

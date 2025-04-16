@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
@@ -19,6 +20,8 @@ public class GeneratorPcg : MonoBehaviour
     [SerializeField] private Vector3Int startPosition = Vector3Int.zero;
     [SerializeField] private int heightMax;
     [SerializeField] private int widthMax;
+    [SerializeField] private GameObject escalier;
+    
     
     [Header("Drunckard Settings")] 
     [SerializeField] private int lMin;
@@ -38,6 +41,8 @@ public class GeneratorPcg : MonoBehaviour
     //[SerializeField] private int deadLimitMin;
     [SerializeField] private int aliveLimit;
 
+    private GameObject currentEscalier;
+    
     private Vector2Int[] _directions = new[]
     {
         Vector2Int.up, Vector2Int.right, Vector2Int.down, Vector2Int.left
@@ -129,6 +134,37 @@ public class GeneratorPcg : MonoBehaviour
         GenerateFillWithLife();
         
         GenerateWall();
+        
+        var exitIsPlaced = false;
+
+        do
+        {
+            var randx = Random.Range(_barrier.xMin, _barrier.xMax);
+            var randy = Random.Range(_barrier.yMin, _barrier.yMax);
+
+            var gridPos = new Vector3Int(randx, randy, 0);
+
+            if (ground.HasTile(gridPos) && AllNeighborsHaveTiles(gridPos))
+            {
+                Vector3 worldPos = ground.CellToWorld(gridPos);
+                currentEscalier = Instantiate(escalier, worldPos, Quaternion.identity);
+                exitIsPlaced = true;
+            }
+
+        } while (!exitIsPlaced);
+        
+    }
+    
+    bool AllNeighborsHaveTiles(Vector3Int center)
+    {
+        foreach (var dir in _mooreNeighbours)
+        {
+            Vector3Int neighbor = center + dir;
+            if (!ground.HasTile(neighbor))
+                return false;
+        }
+
+        return true;
     }
 
     private void ResetTilemap()
@@ -136,6 +172,10 @@ public class GeneratorPcg : MonoBehaviour
         ground.ClearAllTiles();
         wall.ClearAllTiles();
         fackWall.ClearAllTiles();
+        if (currentEscalier != null)
+        {
+            Destroy(currentEscalier);
+        }
     }
 
     private void GenerateDrunckard()

@@ -10,6 +10,7 @@ TagManager:
   - Support
   - EnemyManager
   - Generator
+  - UI
   layers:
   - Default
   - TransparentFX
@@ -49,6 +50,9 @@ TagManager:
     locked: 0
   - name: Map
     uniqueID: 1685654883
+    locked: 0
+  - name: Wall
+    uniqueID: 1292830181
     locked: 0
   - name: Character
     uniqueID: 2281191385

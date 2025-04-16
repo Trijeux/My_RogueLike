@@ -38,8 +38,6 @@ public class StartPosition : MonoBehaviour
 			    if (_player != null)
 			    {
 				    _player.position = transform.position;
-
-				    AstarPath.active.Scan();
 				    
 				    _startPosForPlayer = true;
 			    }
