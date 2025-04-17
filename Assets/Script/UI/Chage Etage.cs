@@ -12,17 +12,21 @@ public class ChageEtage : MonoBehaviour
     [SerializeField] private GameObject blackScreen;
     [SerializeField] private TextMeshProUGUI dungeonEtage;
     [SerializeField] private TextMeshProUGUI caveEtage;
-    private int etage = 0;
+    private int _etage = 0;
 
     #endregion
 
     #region Methods
 
+    public void AddEtage()
+    {
+        _etage++;
+    }
+    
     public void SetEtage()
     {
-        etage++;
-        dungeonEtage.text = $"Dungeon\nE. {etage}";
-        caveEtage.text = $"Cave\nE. {etage}";
+        dungeonEtage.text = $"Dungeon\nE. {_etage}";
+        caveEtage.text = $"Cave\nE. {_etage}";
     }
 
     public void ActiveSwitchDungeon()

@@ -9,8 +9,9 @@ TagManager:
   - Obstacle
   - Support
   - EnemyManager
-  - Generator
   - UI
+  - GeneratorDungeon
+  - GeneratorCave
   layers:
   - Default
   - TransparentFX

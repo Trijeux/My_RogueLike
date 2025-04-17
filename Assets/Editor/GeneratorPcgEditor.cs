@@ -12,7 +12,7 @@ public class GeneratorPcgEditor : Editor
 
         if (GUILayout.Button("Generate"))
         {
-            generatorPcg.StartGenerationButton();
+            generatorPcg.StartGeneration();
         }
     }
 }

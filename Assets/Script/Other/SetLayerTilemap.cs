@@ -78,9 +78,8 @@ public class SetLayerTilemap : MonoBehaviour
     
     private IEnumerator WaitAndScan()
     {
-	    yield return new WaitForSeconds(0.5f);
-	    AstarPath.active.Scan();
 	    yield return new WaitForSeconds(2f);
+	    AstarPath.active.Scan();
 	    _ui.DeactiveSwitchDungeon();
     }
 	

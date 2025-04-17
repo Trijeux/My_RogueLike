@@ -26,6 +26,7 @@ public class NextStage : MonoBehaviour
     {
 	    if (other.CompareTag("Player"))
 	    {
+		    _ui.AddEtage();
 		    _ui.SetEtage();
 		    _ui.ActiveSwitchDungeon();
 		    generator.Generate();
@@ -49,7 +50,7 @@ public class NextStage : MonoBehaviour
     {
 	    if (!_goodGenerator)
 	    {
-		    var targetList = GameObject.FindGameObjectsWithTag("Generator");
+		    var targetList = GameObject.FindGameObjectsWithTag("GeneratorDungeon");
 		    
 		    if (targetList != null)
 		    {

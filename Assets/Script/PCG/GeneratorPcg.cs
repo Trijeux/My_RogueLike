@@ -21,6 +21,7 @@ public class GeneratorPcg : MonoBehaviour
     [SerializeField] private int heightMax;
     [SerializeField] private int widthMax;
     [SerializeField] private GameObject escalier;
+    [SerializeField] private GameObject grid;
     
     
     [Header("Drunckard Settings")] 
@@ -42,7 +43,8 @@ public class GeneratorPcg : MonoBehaviour
     [SerializeField] private int aliveLimit;
 
     private GameObject currentEscalier;
-    
+    public GameObject CurrentEscalier => currentEscalier;
+
     private Vector2Int[] _directions = new[]
     {
         Vector2Int.up, Vector2Int.right, Vector2Int.down, Vector2Int.left
@@ -57,7 +59,31 @@ public class GeneratorPcg : MonoBehaviour
         new Vector3Int(0, -1, 0),
         new Vector3Int(-1, -1, 0),
         new Vector3Int(-1, 0, 0),
-        new Vector3Int(-1, 1, 0),
+        new Vector3Int(-1, 1, 0)
+    };
+    
+    private Vector3Int[] _mooreNeighboursEscalier = new[]
+    {
+        new Vector3Int(0, -1, 0),
+        new Vector3Int(-1,-1, 0),
+        new Vector3Int(-1,0, 0),
+        new Vector3Int(-1,1, 0),
+        new Vector3Int(0,1, 0),
+        new Vector3Int(1,1, 0),
+        new Vector3Int(1,0, 0),
+        new Vector3Int(1,-1, 0),
+        new Vector3Int(2,1, 0),
+        new Vector3Int(2,0, 0),
+        new Vector3Int(2,-1, 0),
+        new Vector3Int(3,1, 0),
+        new Vector3Int(3,0, 0),
+        new Vector3Int(3,-1, 0),
+        new Vector3Int(4,1, 0),
+        new Vector3Int(4,0, 0),
+        new Vector3Int(4,-1, 0),
+        new Vector3Int(5,1, 0),
+        new Vector3Int(5,0, 0),
+        new Vector3Int(5,-1, 0),
     };
 
     private BoundsInt _barrier;
@@ -75,9 +101,14 @@ public class GeneratorPcg : MonoBehaviour
         }
     }
 
-    public void StartGenerationButton()
+    public void StartGeneration()
     {
-        Generate();
+        var goodGenerate = false;
+        do
+        {
+            goodGenerate = Generate();
+            Debug.Log($"Generate : {goodGenerate}");
+        } while (!goodGenerate);
     }
 
 
@@ -85,8 +116,6 @@ public class GeneratorPcg : MonoBehaviour
     private void Start()
     {
         SetBarrier();
-
-        Generate();
     }
 
     private void OnDrawGizmos()
@@ -105,7 +134,7 @@ public class GeneratorPcg : MonoBehaviour
         _barrier = new BoundsInt(boundsPosition, size);
     }
 
-    private void Generate()
+    private bool Generate()
     {
         if (isRandSeed)
         {
@@ -123,7 +152,7 @@ public class GeneratorPcg : MonoBehaviour
         catch (Exception e)
         {
             Debug.LogWarning($"Seed hex invalide: {seedHex} — {e.Message}");
-            return;
+            return false;
         }
 
         
@@ -137,6 +166,8 @@ public class GeneratorPcg : MonoBehaviour
         
         var exitIsPlaced = false;
 
+        var tryForPlaced = 0;
+        
         do
         {
             var randx = Random.Range(_barrier.xMin, _barrier.xMax);
@@ -146,18 +177,21 @@ public class GeneratorPcg : MonoBehaviour
 
             if (ground.HasTile(gridPos) && AllNeighborsHaveTiles(gridPos))
             {
-                Vector3 worldPos = ground.CellToWorld(gridPos);
-                currentEscalier = Instantiate(escalier, worldPos, Quaternion.identity);
+                currentEscalier = Instantiate(escalier, gridPos, Quaternion.identity, grid.transform);
                 exitIsPlaced = true;
             }
-
+            tryForPlaced++;
+            if (tryForPlaced > 100)
+            {
+                return false;
+            }
         } while (!exitIsPlaced);
-        
+        return true;
     }
     
     bool AllNeighborsHaveTiles(Vector3Int center)
     {
-        foreach (var dir in _mooreNeighbours)
+        foreach (var dir in _mooreNeighboursEscalier)
         {
             Vector3Int neighbor = center + dir;
             if (!ground.HasTile(neighbor))
