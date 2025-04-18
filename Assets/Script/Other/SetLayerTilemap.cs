@@ -15,6 +15,7 @@ public class SetLayerTilemap : MonoBehaviour
     private bool pathGood;
     [SerializeField] private ChageEtage _ui;
     [SerializeField] private LayerMask _layerMask;
+    [SerializeField] private GameObject backGround;
     
     #endregion
     
@@ -79,6 +80,7 @@ public class SetLayerTilemap : MonoBehaviour
     private IEnumerator WaitAndScan()
     {
 	    yield return new WaitForSeconds(2f);
+	    Instantiate(backGround, gameObject.transform);
 	    AstarPath.active.Scan();
 	    _ui.DeactiveSwitchDungeon();
     }

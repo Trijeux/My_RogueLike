@@ -15,11 +15,7 @@ MonoBehaviour:
   Position: {x: -16, y: 128}
   Name: Room
   IndividualRoomTemplates:
-  - {fileID: 4180655347275692048, guid: 90ec75925c7b62f4388fb5458f97b5b2, type: 3}
   - {fileID: 4180655347275692048, guid: 7f4af0394425ba74a9133177cb705716, type: 3}
-  - {fileID: 4180655347275692048, guid: f074bd5f36bfacb4ea86483e2714c141, type: 3}
-  - {fileID: 4180655347275692048, guid: cb575131b5216184e9ec0aa81a84ae34, type: 3}
-  - {fileID: 4180655347275692048, guid: 204071b9e2df11243a475e8465fc2e80, type: 3}
   - {fileID: 4180655347275692048, guid: 2a3394dee889ed84f96703a857f318be, type: 3}
   RoomTemplateSets: []
 --- !u!114 &-8094784406745180706

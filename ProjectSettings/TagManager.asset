@@ -46,6 +46,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackGround
+    uniqueID: 881264631
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -60,6 +63,9 @@ TagManager:
     locked: 0
   - name: Projectile
     uniqueID: 686105325
+    locked: 0
+  - name: Minimap
+    uniqueID: 777606163
     locked: 0
   - name: UI
     uniqueID: 664316265
