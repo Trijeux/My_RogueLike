@@ -92,9 +92,9 @@ public class GeneratorPcg : MonoBehaviour
     private struct TileAndWight
     {
         public Tile tile;
-        public int wight;
+        public float wight;
 
-        public TileAndWight(Tile tileSetting, int wightSetting)
+        public TileAndWight(Tile tileSetting, float wightSetting)
         {
             tile = tileSetting;
             wight = wightSetting;
@@ -346,7 +346,7 @@ public class GeneratorPcg : MonoBehaviour
 
         var tileRandom = Random.Range(0, allWight);
         
-        var wightForRand = 0;
+        var wightForRand = 0f;
         foreach (var tile in localTiles)
         {
             if (tile.wight + wightForRand >= tileRandom)
