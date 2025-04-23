@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class ChaseFriend : MonoBehaviour
 {
-    private EnnemieManager _ennemieManager;
+    private EnemyManager _enemyManager;
     private AIPath aiPath;
     [SerializeField] private float moveSpeed;
     private float distanceToTarget;
@@ -33,32 +33,32 @@ public class ChaseFriend : MonoBehaviour
     private void Start()
     {
         aiPath = GetComponent<AIPath>();
-        var enemyManager = GameObject.FindGameObjectWithTag("EnemyManager");
-        _ennemieManager = enemyManager.GetComponent<EnnemieManager>();
+        var enemyManager = GetComponentInParent<EnemyManager>();
+        _enemyManager = enemyManager.GetComponent<EnemyManager>();
         _collider2DTrigger = GetComponentInChildren<CapsuleCollider2D>();
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (Target == null && _ennemieManager.Monsters.Count > 0 && !kamikazeMod)
+        if (Target == null && _enemyManager.Monsters.Count > 0 && !kamikazeMod)
         {
             isGoodDistanceForGrap = false;
             var isValideEnemy = false;
             var numberTest = 0;
             do
             {
-                var random = Random.Range(0, _ennemieManager.Monsters.Count);
-                if (_ennemieManager.Monsters[random].CompareTag("Support"))
+                var random = Random.Range(0, _enemyManager.Monsters.Count);
+                if (_enemyManager.Monsters[random].CompareTag("Support"))
                 {
                     numberTest++;
                 }
                 else
                 {
-                    var targetChild = _ennemieManager.Monsters[random].GetComponent<ActiveChild>();
+                    var targetChild = _enemyManager.Monsters[random].GetComponent<ActiveChild>();
                     if (!targetChild.supportIsHere)
                     {
-                        Target = _ennemieManager.Monsters[random].GetComponent<Transform>();
+                        Target = _enemyManager.Monsters[random].GetComponent<Transform>();
                         isValideEnemy = true;
                     }
                 }

@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8074dc491ddc34f4e83332d9eae76980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Position: {x: 16, y: 256}
+  Position: {x: 128, y: 192}
   Name: Room
   IndividualRoomTemplates: []
   RoomTemplateSets: []
@@ -114,6 +114,7 @@ MonoBehaviour:
   - {fileID: 5701768477476482805}
   - {fileID: 6308817458006596842}
   - {fileID: 2894046835141293111}
+  - {fileID: 7377641848540157998}
   CorridorIndividualRoomTemplates:
   - {fileID: 1309422403759186854, guid: b199b95c9a6a69f4faaf7bda185cb8e8, type: 3}
   - {fileID: 1309422403759186854, guid: e326b5c15b904904db53437c94020785, type: 3}
@@ -144,8 +145,8 @@ MonoBehaviour:
   - {fileID: 8187943666355785847}
   - {fileID: 6931679529171177336}
   EditorData:
-    PanOffset: {x: 97.57297, y: 172.84091}
-    Zoom: 0.82188946
+    PanOffset: {x: 123.5876, y: 172.07204}
+    Zoom: 0.80553377
   RoomType: Edgar.Unity.Room
   ConnectionType: Edgar.Unity.Connection
 --- !u!114 &14786373924871273
@@ -237,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8074dc491ddc34f4e83332d9eae76980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Position: {x: -96, y: 256}
+  Position: {x: 128, y: 128}
   Name: Room
   IndividualRoomTemplates:
   - {fileID: 4180655347275692048, guid: 7f4af0394425ba74a9133177cb705716, type: 3}
@@ -303,6 +304,20 @@ MonoBehaviour:
   - {fileID: 4180655347275692048, guid: 7f4af0394425ba74a9133177cb705716, type: 3}
   - {fileID: 4180655347275692048, guid: 2a3394dee889ed84f96703a857f318be, type: 3}
   RoomTemplateSets: []
+--- !u!114 &7377641848540157998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f692f83df7c1b5468af64edd22287dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  From: {fileID: -6965552586919595244}
+  To: {fileID: 8187943666355785847}
 --- !u!114 &8187943666355785847
 MonoBehaviour:
   m_ObjectHideFlags: 0

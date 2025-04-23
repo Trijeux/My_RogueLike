@@ -34,7 +34,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.44, y: 2.24, z: -1}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6666287199211314693}
@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   child: {fileID: 1781592089748485590}
+  supportIsHere: 0
 --- !u!70 &2901009080159150453
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -308,7 +309,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2013775911
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -8406447148754612889, guid: 44754c3aa42ca6746bd0e558d9d5a7f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -478,7 +479,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2013775911
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 8501433427946325687, guid: 9bd3994653a2c0d4eaf705a9f9d37295, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

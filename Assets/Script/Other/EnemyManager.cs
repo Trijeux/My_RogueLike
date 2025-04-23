@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 
-public class EnnemieManager : MonoBehaviour
+public class EnemyManager : MonoBehaviour
 {
     private int currentMonster = 0;
 

@@ -16,6 +16,7 @@ public class SetLayerTilemap : MonoBehaviour
     [SerializeField] private ChageEtage _ui;
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private GameObject backGround;
+    [SerializeField] private GameObject enemyManager;
     
     #endregion
     
@@ -81,6 +82,7 @@ public class SetLayerTilemap : MonoBehaviour
     {
 	    yield return new WaitForSeconds(2f);
 	    Instantiate(backGround, gameObject.transform);
+	    Instantiate(enemyManager, gameObject.transform);
 	    AstarPath.active.Scan();
 	    _ui.DeactiveSwitchDungeon();
     }

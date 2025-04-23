@@ -142,7 +142,6 @@ public class GeneratorPcg : MonoBehaviour
             var seedInt = (uint)(ticks & 0xFFFFFFFF); // Force à rester dans 32 bits
             seedHex = seedInt.ToString("X"); // En hexadécimal
         }
-
         try
         {
             uint parsedSeed = Convert.ToUInt32(seedHex, 16); // base 16

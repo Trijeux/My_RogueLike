@@ -12,6 +12,7 @@ TagManager:
   - UI
   - GeneratorDungeon
   - GeneratorCave
+  - EnemyManagerDungeon
   layers:
   - Default
   - TransparentFX
