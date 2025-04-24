@@ -33,6 +33,8 @@ public class SpawnEnnemie : MonoBehaviour
     
     private List<KeyValuePair<string, MarkovLinkEnemy>> _markovEnemy = new List<KeyValuePair<string, MarkovLinkEnemy>>();
 
+    private float _timerFistSpawn = 0;
+    
     #endregion
 
     #region Methods
@@ -148,9 +150,14 @@ public class SpawnEnnemie : MonoBehaviour
         {
             if (!_FirstSpawn)
             {
-                Generate();
-                Instantiate(enemy[StringToInt()], gameObject.transform.position, quaternion.identity, _enemyManager.gameObject.transform);
-                _FirstSpawn = true;
+                if (_timerFistSpawn > 2f)
+                {
+                    Generate();
+                    Instantiate(enemy[StringToInt()], gameObject.transform.position, quaternion.identity, _enemyManager.gameObject.transform);
+                    _FirstSpawn = true;
+                    _timerFistSpawn = 0;
+                }
+                _timerFistSpawn += Time.deltaTime;
             }
         
             SpawnEnemy();

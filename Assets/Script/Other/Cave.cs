@@ -12,6 +12,7 @@ public class Cave : MonoBehaviour
     [SerializeField] private GameObject dungeon;
     [SerializeField] private GameObject cave;
     [SerializeField] private ChageEtage _ui;
+    [SerializeField] private EnemyManager _enemyManager;
 
     private Transform _exitSpawn;
     private GeneratorPcg _generatorPcg;
@@ -43,6 +44,7 @@ public class Cave : MonoBehaviour
 	    cave.SetActive(false);
 	    dungeon.SetActive(true);
 	    _player.transform.position = _exitSpawn.position;
+	    _enemyManager.DestroyAllEnemy();
 	    StartCoroutine("WaitAndScanExit");
     }
     

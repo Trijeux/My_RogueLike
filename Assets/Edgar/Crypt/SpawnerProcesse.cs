@@ -26,5 +26,20 @@ public class SpawnerProcesse : DungeonGeneratorPostProcessingGrid2D
         {
             spawnPoint.SetEnemyManager(enemyManager);
         }
+        
+        
+        var nextStage = levelRootGameObject.GetComponentsInChildren<NextStage>();
+
+        nextStage[0].SetEnemyManager(enemyManager);
+        
+        var goCaves = levelRootGameObject.GetComponentsInChildren<GoCave>();
+
+        if (goCaves.Length > 0)
+        {
+            foreach (var goCave in goCaves)
+            {
+                goCave.SetEnemyManager(enemyManager);
+            }
+        }
     }
 }

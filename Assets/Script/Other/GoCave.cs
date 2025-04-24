@@ -12,14 +12,17 @@ public class GoCave : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     private Cave _cave;
     private bool _goodGenerator = false;
-
+    private EnemyManager _enemyManager;
     public Transform SpawnPoint => spawnPoint;
 
     #endregion
 
     #region Methods
 
-
+    public void SetEnemyManager(EnemyManager enemyManager)
+    {
+	    _enemyManager = enemyManager;
+    }
 
     #endregion
 
@@ -29,6 +32,7 @@ public class GoCave : MonoBehaviour
     {
 	    if (other.CompareTag("Player"))
 	    {
+		    _enemyManager.DestroyAllEnemy();
 		    _cave.GetPlayerAndEXit(other.gameObject, spawnPoint);
 		    _cave.EnterCave();
 	    }

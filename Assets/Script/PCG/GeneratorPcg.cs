@@ -15,17 +15,23 @@ public class GeneratorPcg : MonoBehaviour
     [SerializeField] private Tilemap fackWall;
     [SerializeField] private Tilemap wall;
     [SerializeField] private RuleTile fackWallTile;
-    [FormerlySerializedAs("wallKTile")] [SerializeField] private Tile wallTile;
+
+    [FormerlySerializedAs("wallKTile")] [SerializeField]
+    private Tile wallTile;
+
     [SerializeField] private List<TileAndWight> tiles;
     [SerializeField] private Vector3Int startPosition = Vector3Int.zero;
     [SerializeField] private int heightMax;
     [SerializeField] private int widthMax;
     [SerializeField] private GameObject escalier;
     [SerializeField] private GameObject grid;
-    
-    
-    [Header("Drunckard Settings")] 
-    [SerializeField] private int lMin;
+    [SerializeField] private GameObject spawnerEnemy;
+    [SerializeField] private EnemyManager _enemyManager;
+    [SerializeField] private List<SpawnEnnemie> _spawnEnnemies;
+
+    [Header("Drunckard Settings")] [SerializeField]
+    private int lMin;
+
     [SerializeField] private int lMax;
     [SerializeField] private int iterMax;
     [SerializeField] private int nbTilesMax;
@@ -50,44 +56,8 @@ public class GeneratorPcg : MonoBehaviour
         Vector2Int.up, Vector2Int.right, Vector2Int.down, Vector2Int.left
     };
 
-    private Vector3Int[] _mooreNeighbours = new[]
-    {
-        new Vector3Int(0, 1, 0),
-        new Vector3Int(1, 1, 0),
-        new Vector3Int(1, 0, 0),
-        new Vector3Int(1, -1, 0),
-        new Vector3Int(0, -1, 0),
-        new Vector3Int(-1, -1, 0),
-        new Vector3Int(-1, 0, 0),
-        new Vector3Int(-1, 1, 0)
-    };
-    
-    private Vector3Int[] _mooreNeighboursEscalier = new[]
-    {
-        new Vector3Int(0, -1, 0),
-        new Vector3Int(-1,-1, 0),
-        new Vector3Int(-1,0, 0),
-        new Vector3Int(-1,1, 0),
-        new Vector3Int(0,1, 0),
-        new Vector3Int(1,1, 0),
-        new Vector3Int(1,0, 0),
-        new Vector3Int(1,-1, 0),
-        new Vector3Int(2,1, 0),
-        new Vector3Int(2,0, 0),
-        new Vector3Int(2,-1, 0),
-        new Vector3Int(3,1, 0),
-        new Vector3Int(3,0, 0),
-        new Vector3Int(3,-1, 0),
-        new Vector3Int(4,1, 0),
-        new Vector3Int(4,0, 0),
-        new Vector3Int(4,-1, 0),
-        new Vector3Int(5,1, 0),
-        new Vector3Int(5,0, 0),
-        new Vector3Int(5,-1, 0),
-    };
-
     private BoundsInt _barrier;
-    
+
     [Serializable]
     private struct TileAndWight
     {
@@ -129,7 +99,7 @@ public class GeneratorPcg : MonoBehaviour
     {
         var size = new Vector3Int(widthMax, heightMax, 0);
         //Vector3Int boundsPosition = new Vector3Int(startPosition.x + widthMax / 2, startPosition.y + heightMax / 2, 0);
-        var boundsPosition = new Vector3Int(0,0,0) - size / 2;
+        var boundsPosition = new Vector3Int(0, 0, 0) - size / 2;
 
         _barrier = new BoundsInt(boundsPosition, size);
     }
@@ -154,19 +124,19 @@ public class GeneratorPcg : MonoBehaviour
             return false;
         }
 
-        
+
         ResetTilemap();
-        
+
         GenerateDrunckard();
-        
+
         GenerateFillWithLife();
-        
+
         GenerateWall();
-        
+
         var exitIsPlaced = false;
 
         var tryForPlaced = 0;
-        
+
         do
         {
             var randx = Random.Range(_barrier.xMin, _barrier.xMax);
@@ -174,7 +144,7 @@ public class GeneratorPcg : MonoBehaviour
 
             var gridPos = new Vector3Int(randx, randy, 0);
 
-            if (ground.HasTile(gridPos) && AllNeighborsHaveTiles(gridPos))
+            if (ground.HasTile(gridPos) && AllNeighborsHaveTilesForExitDoor(gridPos))
             {
                 currentEscalier = Instantiate(escalier, gridPos, Quaternion.identity, grid.transform);
                 exitIsPlaced = true;
@@ -185,12 +155,52 @@ public class GeneratorPcg : MonoBehaviour
                 return false;
             }
         } while (!exitIsPlaced);
+
+        PlaceSpawnPointEnemy();
+
         return true;
     }
-    
-    bool AllNeighborsHaveTiles(Vector3Int center)
+
+    private void PlaceSpawnPointEnemy()
     {
-        foreach (var dir in _mooreNeighboursEscalier)
+        GameObject spawner = null;
+        for (var i = 0; i < 3; i++)
+        {
+            var spawnsIsPlaced = false;
+            var tryForPlaced = 0;
+            
+            do
+            {
+                var randx = Random.Range(_barrier.xMin, _barrier.xMax);
+                var randy = Random.Range(_barrier.yMin, _barrier.yMax);
+
+                var gridPos = new Vector3Int(randx, randy, 0);
+
+                if (ground.HasTile(gridPos) && AllNeighborsHaveTilesForExitDoor(gridPos))
+                {
+                    if (spawner == null || gridPos == new Vector3Int((int)spawner.transform.position.x,(int)spawner.transform.position.y) || currentEscalier.transform.position == spawner.transform.position)
+                    {
+                        spawner = Instantiate(spawnerEnemy, gridPos, Quaternion.identity, grid.transform);
+                        _spawnEnnemies.Add(spawner.GetComponent<SpawnEnnemie>()); 
+                    }
+                    spawnsIsPlaced = true;
+                }
+                tryForPlaced++;
+                if (tryForPlaced > 100)
+                {
+                    break;
+                }
+            } while (!spawnsIsPlaced);
+        }
+        foreach (var spawnEnnemy in _spawnEnnemies)
+        {
+            spawnEnnemy.SetEnemyManager(_enemyManager);
+        }
+    }
+
+    private bool AllNeighborsHaveTilesForSpawnerEnemy(Vector3Int center)
+    {
+        foreach (var dir in GenerateNeighbours(new Vector2Int(-3,-3),new Vector2Int(3,3)))
         {
             Vector3Int neighbor = center + dir;
             if (!ground.HasTile(neighbor))
@@ -198,6 +208,35 @@ public class GeneratorPcg : MonoBehaviour
         }
 
         return true;
+    }
+    
+    private bool AllNeighborsHaveTilesForExitDoor(Vector3Int center)
+    {
+        foreach (var dir in GenerateNeighbours(new Vector2Int(-1,-1),new Vector2Int(5,1)))
+        {
+            Vector3Int neighbor = center + dir;
+            if (!ground.HasTile(neighbor))
+                return false;
+        }
+
+        return true;
+    }
+
+    private List<Vector3Int> GenerateNeighbours(Vector2Int posMin, Vector2Int posMax)
+    {
+        var neighbours = new List<Vector3Int>();
+        for (var x = posMin.x; x <= posMax.x; x++)
+        {
+            for (var y = posMin.y; y <= posMax.y; y++)
+            {
+                if (x == 0 && y == 0)
+                {
+                   continue;
+                }
+                neighbours.Add(new Vector3Int(x, y));
+            }
+        }
+        return neighbours;
     }
 
     private void ResetTilemap()
@@ -208,6 +247,13 @@ public class GeneratorPcg : MonoBehaviour
         if (currentEscalier != null)
         {
             Destroy(currentEscalier);
+        }
+        if (_spawnEnnemies.Count > 0)
+        {
+            foreach (var spawnEnnemy in _spawnEnnemies)
+            {
+                Destroy(spawnEnnemy.gameObject);
+            }
         }
     }
 
@@ -261,7 +307,7 @@ public class GeneratorPcg : MonoBehaviour
                     var position = new Vector3Int(x, y);
                     var isAlive = ground.HasTile(position);
 
-                    foreach (var neighbour in _mooreNeighbours)
+                    foreach (var neighbour in GenerateNeighbours(new Vector2Int(-1,-1), new Vector2Int(1,1)))
                     {
                         if (IsInBounds(position + neighbour))
                         {
@@ -320,15 +366,15 @@ public class GeneratorPcg : MonoBehaviour
         {
             for (var y = _barrier.yMin; y < _barrier.yMax; y++)
             {
-                if (ground.HasTile(new Vector3Int(x,y)))
+                if (ground.HasTile(new Vector3Int(x, y)))
                 {
-                    fackWall.SetTile(new Vector3Int(x,y),fackWallTile);
-                    foreach (var neighbour in _mooreNeighbours)
+                    fackWall.SetTile(new Vector3Int(x, y), fackWallTile);
+                    foreach (var neighbour in GenerateNeighbours(new Vector2Int(-1,-1), new Vector2Int(1,1)))
                     {
-                        if (!ground.HasTile(new Vector3Int(x,y) + neighbour))
+                        if (!ground.HasTile(new Vector3Int(x, y) + neighbour))
                         {
-                            fackWall.SetTile(new Vector3Int(x,y) + neighbour,fackWallTile);
-                            wall.SetTile(new Vector3Int(x,y) + neighbour,wallTile);
+                            fackWall.SetTile(new Vector3Int(x, y) + neighbour, fackWallTile);
+                            wall.SetTile(new Vector3Int(x, y) + neighbour, wallTile);
                         }
                     }
                 }
@@ -336,15 +382,14 @@ public class GeneratorPcg : MonoBehaviour
         }
     }
 
-
     private Tile GetRandomTile()
     {
         var localTiles = tiles.OrderByDescending(t => t.wight);
-        
+
         var allWight = localTiles.Sum(tile => tile.wight);
 
         var tileRandom = Random.Range(0, allWight);
-        
+
         var wightForRand = 0f;
         foreach (var tile in localTiles)
         {

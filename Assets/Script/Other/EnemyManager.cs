@@ -31,4 +31,12 @@ public class EnemyManager : MonoBehaviour
             currentMonster = transform.childCount;
         }
     }
+
+    public void DestroyAllEnemy()
+    {
+        foreach (var monster in Monsters)
+        {
+           Destroy(monster);
+        }
+    }
 }

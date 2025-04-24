@@ -61,6 +61,7 @@ public class ChaseFriend : MonoBehaviour
                         Target = _enemyManager.Monsters[random].GetComponent<Transform>();
                         isValideEnemy = true;
                     }
+                    numberTest++;
                 }
                 if (numberTest >= 100)
                 {

@@ -11,21 +11,26 @@ public class NextStage : MonoBehaviour
 	private DungeonGeneratorGrid2D generator;
 	private bool _goodGenerator = false;
 	private ChageEtage _ui;
+	private EnemyManager _enemyManager;
 
     #endregion
 
     #region Methods
 
-
+    public void SetEnemyManager(EnemyManager enemyManager)
+    {
+	    _enemyManager = enemyManager;
+    }
 
     #endregion
 
     #region Behaviors
-
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
 	    if (other.CompareTag("Player"))
 	    {
+		    _enemyManager.DestroyAllEnemy();
 		    _ui.AddEtage();
 		    _ui.SetEtage();
 		    _ui.ActiveSwitchDungeon();
