@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2013775911
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 8501433427946325687, guid: 9bd3994653a2c0d4eaf705a9f9d37295, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -185,7 +185,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2013775911
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: -9144757742491502902, guid: 109ef82d11cf27544822297ee9146a3d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -342,7 +342,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2013775911
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: -6907436615258626985, guid: 109ef82d11cf27544822297ee9146a3d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -499,7 +499,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2013775911
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: -2182818777442350104, guid: 109ef82d11cf27544822297ee9146a3d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -691,7 +691,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2013775911
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 262143400879508204, guid: 109ef82d11cf27544822297ee9146a3d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -837,7 +837,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2013775911
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 4716068066194000674, guid: 47a7d3a526c72df47b74c6c732927647, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -964,6 +964,9 @@ MonoBehaviour:
   cooldownAttack: 1
   _gameObjectAttack: {fileID: 6531679563914218272}
   PlayerAttack: PlayerAttack
+  maxLife: 3
+  damagePlayer: 1
+  _collider2DTrigger: {fileID: 8037206633504644791}
   _collider2D: {fileID: 1069067312235755479}
   _activeChild: {fileID: 5054269637396783436}
   _Child: {fileID: 2533463087449321926}
@@ -994,6 +997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   child: {fileID: 2533463087449321926}
+  supportIsHere: 0
 --- !u!70 &8037206633504644791
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

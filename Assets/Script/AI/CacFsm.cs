@@ -1,4 +1,5 @@
 using System;
+using Script.Player;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -11,15 +12,15 @@ public class CacFsm : MonoBehaviour
         Flee,
         Attack
     }
-
     private Chase _chase;
 
     [SerializeField] private float timerDurationFeel = 5;
     [SerializeField] private float cooldownAttack = 5;
     [SerializeField] private GameObject _gameObjectAttack;
     [SerializeField] private string PlayerAttack;
+    [SerializeField] private int maxLife;
     
-    private CapsuleCollider2D _collider2DTrigger;
+    [SerializeField] private CapsuleCollider2D _collider2DTrigger;
     [SerializeField]private CapsuleCollider2D _collider2D;
     [SerializeField] private ActiveChild _activeChild;
     [SerializeField] private GameObject _Child;
@@ -31,8 +32,8 @@ public class CacFsm : MonoBehaviour
     private bool haveAttacked = false;
     private bool isHit = false;
     private int hitCount;
-
-
+    private int _life;
+    
     private void AddCountHit()
     {
         hitCount++;
@@ -45,11 +46,13 @@ public class CacFsm : MonoBehaviour
 
     private void Start()
     {
+        var damageenemy = GetComponentInParent<EnemyManager>();
+        maxLife = damageenemy.SetHealEnemy(maxLife);
         _motion = GetComponent<CacSteeringBehaviour>();
         _chase = GetComponent<Chase>();
         _animator = GetComponent<Animator>();
-        _collider2DTrigger = GetComponent<CapsuleCollider2D>();
         SetState(FsmState.Chase);
+        _life = maxLife;
     }
 
     private void Update()
@@ -64,7 +67,6 @@ public class CacFsm : MonoBehaviour
             }
             _animator.SetBool("Hit", true);
             _animator.SetInteger("HitCount", hitCount);
-            _collider2DTrigger.enabled = false;
         }
         else
         {
@@ -192,8 +194,18 @@ public class CacFsm : MonoBehaviour
     {
         if (other.CompareTag(PlayerAttack))
         {
+            _collider2DTrigger.enabled = false;
             _gameObjectAttack.SetActive(false);
+            var player = other.GetComponentInParent<PlayerMove>();
+            if (!isHit)
+            {
+                _life -= player.Attack;
+            }
             isHit = true;
+            if (_life <= 0 && !_Child.activeSelf)
+            {
+                Destroy(gameObject);
+            }
             hitCount = 0;
         }
     }

@@ -14,6 +14,8 @@ namespace Script.Player
 		#region Attributs
 
 		[SerializeField] private string enemy;
+		[SerializeField] private PlayerMove _playerMove;
+		[SerializeField] private ChageEtage _chageEtage;
 
 		public bool Invincibility { get; set; } = false;
 		public bool IsHitDamage { get; set; } = false;
@@ -38,6 +40,8 @@ namespace Script.Player
 		{
 			if (other.CompareTag(enemy) && !Invincibility)
 			{
+				//Debug.Log(_chageEtage.Etage / 5 + 1);
+				_playerMove.SubLife(_chageEtage.Etage / 5 + 1);
 				IsHitDamage = true;
 				Invincibility = true;
 			}

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Script.Player;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -22,9 +23,10 @@ public class SupportFsm : MonoBehaviour
     [SerializeField] private string PlayerAttack;
     [SerializeField] private float cooldownExplotion;
     [SerializeField] private GameObject Explotion;
+    [SerializeField] private int maxLife;
+    [SerializeField] private int damagePlayer;
 
-
-    private CapsuleCollider2D _collider2DTrigger;
+    [SerializeField] private CapsuleCollider2D _collider2DTrigger;
     private ActiveChild targetChild;
 
     private Animator _animator;
@@ -35,8 +37,9 @@ public class SupportFsm : MonoBehaviour
     private int hitCount;
     private bool explotionActive = false;
     private float timeExplotion = 0;
-
-
+    private int _life;
+    
+    
     private void destroyKamikaze()
     {
         Destroy(transform.parent.gameObject);
@@ -53,11 +56,13 @@ public class SupportFsm : MonoBehaviour
 
     private void Start()
     {
+        var damageenemy = transform.parent.GetComponentInParent<EnemyManager>();
+        maxLife = damageenemy.SetHealEnemy(maxLife);
         _motion = GetComponentInParent<SupportSteeringBehaviour>();
         _chaseFriend = GetComponentInParent<ChaseFriend>();
         _animator = GetComponent<Animator>();
-        _collider2DTrigger = GetComponent<CapsuleCollider2D>();
         SetState(FsmState.ChaseFriend);
+        _life = maxLife;
     }
 
     private void Update()
@@ -206,7 +211,17 @@ public class SupportFsm : MonoBehaviour
     {
         if (other.CompareTag(PlayerAttack))
         {
+            _collider2DTrigger.enabled = false;
+            var player = other.GetComponentInParent<PlayerMove>();
+            if (!isHit)
+            {
+                _life -= player.Attack;
+            }
             isHit = true;
+            if (_life <= 0)
+            {
+                Destroy(gameObject.transform.parent.gameObject);
+            }
             hitCount = 0;
         }
     }

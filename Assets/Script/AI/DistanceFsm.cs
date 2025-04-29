@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Script.Player;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -23,8 +24,11 @@ public class DistanceFsm : MonoBehaviour
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private GameObject arrow;
     [SerializeField] private GameObject firePoint;
-
-    private CapsuleCollider2D _collider2DTrigger;
+    [SerializeField] private int maxLife;
+    [SerializeField] private int damagePlayer;
+    
+    
+    [SerializeField] private CapsuleCollider2D _collider2DTrigger;
     [SerializeField]private CapsuleCollider2D _collider2D;
     [SerializeField] private ActiveChild _activeChild;
     [SerializeField] private GameObject _Child;
@@ -43,6 +47,7 @@ public class DistanceFsm : MonoBehaviour
     private List<Collider2D> _colliders = new List<Collider2D>();
     private bool canNotAttack;
     private Vector3 scale;
+    private int _life;
 
     private void AddCountHit()
     {
@@ -58,14 +63,16 @@ public class DistanceFsm : MonoBehaviour
 
     private void Start()
     {
+        var damageenemy = transform.parent.GetComponentInParent<EnemyManager>();
+        maxLife = damageenemy.SetHealEnemy(maxLife);
         _motion = GetComponentInParent<DistanceSteeringBehaviour>();
         _chase = GetComponentInParent<Chase>();
         _animator = GetComponent<Animator>();
-        _collider2DTrigger = GetComponent<CapsuleCollider2D>();
         target = _chase.Target.GetComponentInParent<Transform>();
         SetState(FsmState.Chase);
         _contactFilter2D.SetLayerMask(_layerMask);
         scale = transform.parent.localScale;
+        _life = maxLife;
     }
 
     private void Update()
@@ -81,7 +88,6 @@ public class DistanceFsm : MonoBehaviour
             }
             _animator.SetBool("Hit", true);
             _animator.SetInteger("HitCount", hitCount);
-            _collider2DTrigger.enabled = false;
         }
         else
         {
@@ -236,7 +242,17 @@ public class DistanceFsm : MonoBehaviour
     {
         if (other.CompareTag(PlayerAttack))
         {
+            _collider2DTrigger.enabled = false;
+            var player = other.GetComponentInParent<PlayerMove>();
+            if (!isHit)
+            {
+                _life -= player.Attack;
+            }
             isHit = true;
+            if (_life <= 0 && !_Child.activeSelf)
+            {
+                Destroy(gameObject.transform.parent.gameObject);
+            }
             hitCount = 0;
         }
     }

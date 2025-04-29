@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    [SerializeField] private ChageEtage _chageEtage;
+    
     private int currentMonster = 0;
 
     public List<GameObject> Monsters { get; } = new List<GameObject>();
 
+    public int SetHealEnemy(int enemyHeal)
+    {
+        return _chageEtage.Etage / 5 + enemyHeal;
+    }
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
     }
-
+    
     // Update is called once per frame
     void Update()
     {

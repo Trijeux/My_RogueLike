@@ -63,7 +63,7 @@ public class ChaseFriend : MonoBehaviour
                     }
                     numberTest++;
                 }
-                if (numberTest >= 100)
+                if (numberTest >= 1000)
                 {
                     isValideEnemy = true;
                     kamikazeMod = true;

@@ -365,6 +365,9 @@ MonoBehaviour:
     m_Bits: 192
   arrow: {fileID: 6918044181955602722, guid: cf576a72ae25c434ea85867de92dd30f, type: 3}
   firePoint: {fileID: 8610075256173014070}
+  maxLife: 2
+  damagePlayer: 1
+  _collider2DTrigger: {fileID: 5507925305787872100}
   _collider2D: {fileID: 2901009080159150453}
   _activeChild: {fileID: 6901857132490876052}
   _Child: {fileID: 1781592089748485590}

@@ -18,7 +18,6 @@ public class GoCave : MonoBehaviour
     #endregion
 
     #region Methods
-
     public void SetEnemyManager(EnemyManager enemyManager)
     {
 	    _enemyManager = enemyManager;

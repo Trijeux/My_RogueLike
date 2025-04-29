@@ -13,10 +13,22 @@ namespace Script.Player
     public class PlayerMove : MonoBehaviour
     {
         #region Attributs
-        
+
+        [SerializeField] private GameObject game;
+        [SerializeField] private GameObject gameOver;
         [SerializeField]private GameObject attackUp;
         [SerializeField]private GameObject attackRightLeft;
         [SerializeField]private GameObject attackDown;
+        [SerializeField] private int lifeMaxCurrent;
+        [SerializeField] private int startLife;
+        [SerializeField] private int lifeMax;
+        [SerializeField] private int attack;
+
+        public int LifeMaxCurrent => lifeMaxCurrent;
+        public int LifeMax => lifeMax;
+        public int Life { get; private set; }
+
+        public int Attack => attack;
         
         private Rigidbody2D _rb;
         private Animator _animatorPlayer;
@@ -30,7 +42,7 @@ namespace Script.Player
         private bool _attackIsGood = true;
         private int _hitCount = 0; 
         private static float RotationY => 180f;
-        
+
         private enum DirectionLook
         {
             Up,
@@ -56,6 +68,29 @@ namespace Script.Player
 
         #region Methods
 
+        public void AddAttack()
+        {
+            attack++;
+        }
+
+        public void AddHeal()
+        {
+            lifeMaxCurrent += 2;
+            if (lifeMaxCurrent > 19*2)
+            {
+                lifeMaxCurrent = 19 * 2;
+            }
+        }
+
+        public void Heal()
+        {
+            Life += 2;
+            if (lifeMaxCurrent < Life)
+            {
+                Life = lifeMaxCurrent;
+            }
+        }
+        
         private void AttackEnd()
         {
             _attackIsGood = true;
@@ -168,6 +203,20 @@ namespace Script.Player
                 _triggerPlayer.Invincibility = false;
             }
         }
+
+        private void CheckIsAlive()
+        {
+            if (Life <= 0)
+            {
+                gameOver.SetActive(true);
+                game.SetActive(false);
+            }
+        }
+        
+        public void SubLife(int damage)
+        {
+            Life -= damage;
+        } 
         
         #endregion
 
@@ -178,6 +227,7 @@ namespace Script.Player
             _rb = GetComponent<Rigidbody2D>();
             _animatorPlayer = GetComponent<Animator>();
             _triggerPlayer = GetComponentInChildren<TriggerCollidePlayer>();
+            Life = startLife;
         }
 
         private void FixedUpdate()
@@ -187,6 +237,7 @@ namespace Script.Player
             UpdateAnimator();
             UpdateAttackCollider(); 
             Damage();
+            CheckIsAlive();
         }
 
         #endregion

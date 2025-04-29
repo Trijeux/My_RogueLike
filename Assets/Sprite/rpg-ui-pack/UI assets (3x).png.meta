@@ -39787,13 +39787,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI assets (3x)_1617
+      name: Heart
       rect:
         serializedVersion: 2
-        x: 96
-        y: 720
-        width: 48
-        height: 48
+        x: 105
+        y: 726
+        width: 30
+        height: 27
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -39809,13 +39809,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI assets (3x)_1618
+      name: Empty_Heart
       rect:
         serializedVersion: 2
-        x: 144
-        y: 720
-        width: 48
-        height: 48
+        x: 153
+        y: 726
+        width: 30
+        height: 27
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -52758,6 +52758,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      Empty_Heart: 1564078526
+      Heart: -865985473
       UI assets (3x)_0: 9010803787961036021
       UI assets (3x)_1: 9054144907888139652
       UI assets (3x)_10: 1838425126540113098
@@ -53446,8 +53448,6 @@ TextureImporter:
       UI assets (3x)_1614: 1570475496
       UI assets (3x)_1615: -1073899958
       UI assets (3x)_1616: -283273237
-      UI assets (3x)_1617: -865985473
-      UI assets (3x)_1618: 1564078526
       UI assets (3x)_1619: 1064950869
       UI assets (3x)_162: -8985224449722824537
       UI assets (3x)_1620: 1390296557
