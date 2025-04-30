@@ -17,7 +17,6 @@ public class Cave : MonoBehaviour
     private Transform _exitSpawn;
     private GeneratorPcg _generatorPcg;
     private GameObject _player;
-    
 
     #endregion
 
