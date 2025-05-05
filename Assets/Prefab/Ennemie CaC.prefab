@@ -960,12 +960,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b05f73dd98eeb4cae1c3062e3de00b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerDurationFeel: 5
-  cooldownAttack: 1
+  timerDurationFeel: 2
+  cooldownAttack: 0.2
   _gameObjectAttack: {fileID: 6531679563914218272}
   PlayerAttack: PlayerAttack
   maxLife: 3
-  damagePlayer: 1
   _collider2DTrigger: {fileID: 8037206633504644791}
   _collider2D: {fileID: 1069067312235755479}
   _activeChild: {fileID: 5054269637396783436}
