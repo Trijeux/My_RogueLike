@@ -2,10 +2,12 @@
 // Script by : Nanatchy
 
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.Serialization;
+using UnityEngine.UIElements.Experimental;
 
 namespace Script.Player
 {
@@ -14,6 +16,7 @@ namespace Script.Player
     {
         #region Attributs
 
+        [FormerlySerializedAs("kill")] [SerializeField] private TextMeshProUGUI killText;
         [SerializeField] private GameObject game;
         [SerializeField] private GameObject gameOver;
         [SerializeField]private GameObject attackUp;
@@ -23,7 +26,17 @@ namespace Script.Player
         [SerializeField] private int startLife;
         [SerializeField] private int lifeMax;
         [SerializeField] private int attack;
+        [SerializeField] private int numbKill;
+        public PlayerInput playerInput;
+        
+        public bool InputRight { get; private set; }
+        
+        public bool InputLeft { get; private set; }
+        
+        public bool InputValide { get; private set; }
 
+
+        private int _kill = 0;
         public int LifeMaxCurrent => lifeMaxCurrent;
         public int LifeMax => lifeMax;
         public int Life { get; private set; }
@@ -43,6 +56,24 @@ namespace Script.Player
         private int _hitCount = 0; 
         private static float RotationY => 180f;
 
+        public void SetActiveInput(bool value)
+        {
+            switch (value)
+            {
+                case true:
+                    playerInput.ActivateInput();
+                    break;
+                case false:
+                    playerInput.DeactivateInput();
+                    break;
+            }
+        }
+        
+        public void AddKill()
+        {
+            _kill++;
+        }
+        
         private enum DirectionLook
         {
             Up,
@@ -186,6 +217,21 @@ namespace Script.Player
             _attackInput = value.isPressed;
         }
         
+        private void OnMoveRight(InputValue value)
+        {
+            InputRight = value.isPressed;
+        }
+    
+        private void OnMoveLeft(InputValue value)
+        {
+            InputLeft = value.isPressed;
+        }
+    
+        private void OnValide(InputValue value)
+        {
+            InputValide = value.isPressed;
+        }
+        
         private void Damage()
         {
             if (_triggerPlayer.IsHitDamage && _hitCount != 2)
@@ -238,6 +284,12 @@ namespace Script.Player
             UpdateAttackCollider(); 
             Damage();
             CheckIsAlive();
+            if (numbKill <= _kill)
+            {
+                _kill = 0;
+                Heal();
+            }
+            killText.text = $"{_kill} / {numbKill}";
         }
 
         #endregion

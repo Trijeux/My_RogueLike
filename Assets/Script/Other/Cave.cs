@@ -3,12 +3,14 @@
 
 using System;
 using System.Collections;
+using Script.Player;
 using UnityEngine;
 
 public class Cave : MonoBehaviour
 {
     #region Attributs
 
+    [SerializeField] private PlayerMove playerMove;
     [SerializeField] private GameObject dungeon;
     [SerializeField] private GameObject cave;
     [SerializeField] private ChageEtage _ui;
@@ -65,17 +67,21 @@ public class Cave : MonoBehaviour
     private IEnumerator WaitAndScanEnter()
     {
 	    _ui.ActiveSwitchCave();
+	    playerMove.SetActiveInput(false);
 	    yield return new WaitForSeconds(2f);
 	    AstarPath.active.Scan();
 	    _ui.DeactiveSwitchCave();
+	    playerMove.SetActiveInput(true);
     }
     
     private IEnumerator WaitAndScanExit()
     {
 	    _ui.ActiveSwitchDungeon();
+	    playerMove.SetActiveInput(false);
 	    yield return new WaitForSeconds(2f);
 	    AstarPath.active.Scan();
 	    _ui.DeactiveSwitchDungeon();
+	    playerMove.SetActiveInput(true);
     }
 	
 	#endregion

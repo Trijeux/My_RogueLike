@@ -8,6 +8,8 @@ public class NextStage : MonoBehaviour
 {
     #region Attributs
 
+    private GameObject test;
+    
 	private DungeonGeneratorGrid2D generator;
 	private bool _goodGenerator = false;
 	private ChageEtage _ui;
@@ -30,11 +32,11 @@ public class NextStage : MonoBehaviour
     {
 	    if (other.CompareTag("Player"))
 	    {
-		    _enemyManager.DestroyAllEnemy();
 		    _ui.AddEtage();
 		    _ui.SetEtage();
 		    _ui.ActiveSwitchDungeon();
 		    generator.Generate();
+		    _enemyManager.DestroyAllEnemy();
 	    }
     }
 

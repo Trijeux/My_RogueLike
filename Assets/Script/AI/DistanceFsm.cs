@@ -251,6 +251,7 @@ public class DistanceFsm : MonoBehaviour
             isHit = true;
             if (_life <= 0 && !_Child.activeSelf)
             {
+                player.AddKill();
                 Destroy(gameObject.transform.parent.gameObject);
             }
             hitCount = 0;

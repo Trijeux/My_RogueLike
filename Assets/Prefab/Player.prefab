@@ -53,9 +53,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41c6420da5b02684986a23847873c3ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  game: {fileID: 0}
+  gameOver: {fileID: 0}
   attackUp: {fileID: 6903310508020171532}
   attackRightLeft: {fileID: 2101970255894692617}
   attackDown: {fileID: 6266477995421500974}
+  lifeMaxCurrent: 0
+  startLife: 0
+  lifeMax: 0
+  attack: 0
+  numbKill: 20
   speed: 7
 --- !u!212 &1352967693287489120
 SpriteRenderer:
@@ -99,7 +106,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2013775911
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -564894140, guid: 8c9dada65a01b0147b49bea9c68921d0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -352,6 +359,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: Enemy
+  _playerMove: {fileID: 0}
+  _chageEtage: {fileID: 0}
 --- !u!70 &6629625080487287134
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

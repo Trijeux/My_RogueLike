@@ -220,6 +220,7 @@ public class SupportFsm : MonoBehaviour
             isHit = true;
             if (_life <= 0)
             {
+                player.AddKill();
                 Destroy(gameObject.transform.parent.gameObject);
             }
             hitCount = 0;

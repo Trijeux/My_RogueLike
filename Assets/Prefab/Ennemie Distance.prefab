@@ -356,10 +356,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2114e7a452011e4990dfdc29e282b5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownAttack: 2
-  timerDurationFeel: 5
+  cooldownAttack: 1
+  timerDurationFeel: 1
   PlayerAttack: PlayerAttack
-  distanceFeel: 4
+  distanceFeel: 3
   _layerMask:
     serializedVersion: 2
     m_Bits: 192

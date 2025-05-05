@@ -13,7 +13,7 @@ public class ChageEtage : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dungeonEtage;
     [SerializeField] private TextMeshProUGUI caveEtage;
 
-    public int Etage { get; private set; } = 0;
+    public int Etage { get; private set; } = -1;
 
     #endregion
 

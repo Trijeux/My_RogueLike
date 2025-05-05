@@ -128,7 +128,7 @@ MonoBehaviour:
   PlayerAttack: PlayerAttack
   cooldownExplotion: 5
   Explotion: {fileID: 3980946641229398776}
-  maxLife: 3
+  maxLife: 1
   damagePlayer: 1
   _collider2DTrigger: {fileID: 5420830541163382477}
 --- !u!70 &5420830541163382477

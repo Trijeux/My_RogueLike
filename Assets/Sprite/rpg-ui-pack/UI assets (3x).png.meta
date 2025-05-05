@@ -52744,6 +52744,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Select
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 2946
+        width: 108
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5ecfde63c6886d449c8d8256708d2e9
+      internalID: 1265794456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -52760,6 +52782,7 @@ TextureImporter:
     nameFileIdTable:
       Empty_Heart: 1564078526
       Heart: -865985473
+      Select: 1265794456
       UI assets (3x)_0: 9010803787961036021
       UI assets (3x)_1: 9054144907888139652
       UI assets (3x)_10: 1838425126540113098

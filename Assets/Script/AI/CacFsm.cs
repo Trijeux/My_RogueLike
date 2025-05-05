@@ -38,6 +38,12 @@ public class CacFsm : MonoBehaviour
     {
         hitCount++;
     }
+
+    private void StartAttack()
+    {
+        _gameObjectAttack.SetActive(true);
+    }
+    
     private void EndAttack()
     {
         _gameObjectAttack.SetActive(false);
@@ -171,7 +177,6 @@ public class CacFsm : MonoBehaviour
                 {
                     timerAttack = 0;
                     _animator.SetTrigger("Attack");
-                    _gameObjectAttack.SetActive(true);
                 }
                 break;
             case FsmState.Empty:
@@ -204,6 +209,7 @@ public class CacFsm : MonoBehaviour
             isHit = true;
             if (_life <= 0 && !_Child.activeSelf)
             {
+                player.AddKill();
                 Destroy(gameObject);
             }
             hitCount = 0;

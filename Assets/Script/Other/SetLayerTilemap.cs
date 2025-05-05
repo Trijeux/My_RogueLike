@@ -3,6 +3,7 @@
 
 
 using System.Collections;
+using Script.Player;
 using UnityEngine;
 
 public class SetLayerTilemap : MonoBehaviour
@@ -13,6 +14,7 @@ public class SetLayerTilemap : MonoBehaviour
     private Transform _wall;
     private Transform _collideable;
     private bool pathGood;
+    [SerializeField] private PlayerMove _playerMove;
     [SerializeField] private ChageEtage _ui;
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private GameObject backGround;
@@ -79,10 +81,12 @@ public class SetLayerTilemap : MonoBehaviour
     
     private IEnumerator WaitAndScan()
     {
+	    _playerMove.SetActiveInput(false);
 	    yield return new WaitForSeconds(2f);
 	    Instantiate(backGround, gameObject.transform);
 	    AstarPath.active.Scan();
 	    _ui.DeactiveSwitchDungeon();
+	    _playerMove.SetActiveInput(true);
     }
 	
 	#endregion
