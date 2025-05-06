@@ -17,6 +17,8 @@ public class DistanceFsm : MonoBehaviour
 
     private Chase _chase;
 
+    [SerializeField] private AudioSource attackAudio;
+    [SerializeField] private AudioSource hitAudio;
     [SerializeField] private float cooldownAttack = 5;
     [SerializeField] private float timerDurationFeel = 5;
     [SerializeField] private string PlayerAttack;
@@ -49,6 +51,16 @@ public class DistanceFsm : MonoBehaviour
     private Vector3 scale;
     private int _life;
 
+    private void PlayAttack()
+    {
+        attackAudio.Play();
+    }
+    
+    private void PlayHit()
+    {
+        hitAudio.Play();
+    }
+    
     private void AddCountHit()
     {
         hitCount++;

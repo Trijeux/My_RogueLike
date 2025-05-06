@@ -19,7 +19,8 @@ public class CacFsm : MonoBehaviour
     [SerializeField] private GameObject _gameObjectAttack;
     [SerializeField] private string PlayerAttack;
     [SerializeField] private int maxLife;
-    
+    [SerializeField] private AudioSource hitAudio;
+    [SerializeField] private AudioSource attackAudio;
     [SerializeField] private CapsuleCollider2D _collider2DTrigger;
     [SerializeField]private CapsuleCollider2D _collider2D;
     [SerializeField] private ActiveChild _activeChild;
@@ -33,6 +34,16 @@ public class CacFsm : MonoBehaviour
     private bool isHit = false;
     private int hitCount;
     private int _life;
+
+    private void PlayAttack()
+    {
+        attackAudio.Play();
+    }
+
+    private void PlayHit()
+    {
+        hitAudio.Play();
+    }
     
     private void AddCountHit()
     {

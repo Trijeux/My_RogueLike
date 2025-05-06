@@ -8,7 +8,7 @@ using UnityEngine;
 public class Healing : MonoBehaviour
 {
     #region Attributs
-
+    
     #endregion
 
     #region Methods

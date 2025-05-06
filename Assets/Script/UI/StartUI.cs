@@ -15,7 +15,7 @@ public class StartUI : MonoBehaviour
     [SerializeField] private Animator animatorBook;
     [SerializeField] private GameObject selectStart;
     [SerializeField] private GameObject selectQuit;
-
+    [SerializeField] private AudioSource audioSource;
 
     private bool _haveSwitch = false;
     private int _valideIndx = 0;
@@ -59,8 +59,9 @@ public class StartUI : MonoBehaviour
 	    }
 	    if (playerMove.InputValide && _valideIndx == 0)
 	    {
-		    gameObject.SetActive(false);
+		    audioSource.Play();
 		    playerMove.playerInput.SwitchCurrentActionMap("Player");
+		    gameObject.SetActive(false);
 	    }
 	    if (playerMove.InputValide && _valideIndx == 1)
 	    {

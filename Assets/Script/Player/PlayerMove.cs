@@ -16,6 +16,11 @@ namespace Script.Player
     {
         #region Attributs
 
+        [SerializeField] private AudioSource hitSource;
+        [SerializeField] private AudioSource attackSource;
+        [SerializeField] private AudioSource upgardAttackSource;
+        [SerializeField] private AudioSource upgardHealSource;
+        [SerializeField] private AudioSource healSource;
         [FormerlySerializedAs("kill")] [SerializeField] private TextMeshProUGUI killText;
         [SerializeField] private GameObject game;
         [SerializeField] private GameObject gameOver;
@@ -68,6 +73,18 @@ namespace Script.Player
                     break;
             }
         }
+
+
+        private void PlayAttack()
+        {
+            attackSource.Play();
+        }
+        
+        private void PlayHit()
+        {
+            hitSource.Play();
+        }
+
         
         public void AddKill()
         {
@@ -101,11 +118,13 @@ namespace Script.Player
 
         public void AddAttack()
         {
+            upgardAttackSource.Play();
             attack++;
         }
 
         public void AddHeal()
         {
+            upgardHealSource.Play();
             lifeMaxCurrent += 2;
             if (lifeMaxCurrent > 19*2)
             {
@@ -115,6 +134,7 @@ namespace Script.Player
 
         public void Heal()
         {
+            healSource.Play();
             Life += 2;
             if (lifeMaxCurrent < Life)
             {

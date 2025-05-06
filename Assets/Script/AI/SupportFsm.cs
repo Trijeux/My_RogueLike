@@ -19,6 +19,10 @@ public class SupportFsm : MonoBehaviour
 
     private ChaseFriend _chaseFriend;
 
+
+    [SerializeField] private AudioSource attackAudio;
+    [SerializeField] private AudioSource hitAudio;
+    [SerializeField] private AudioSource giveChildAudio;
     [SerializeField] private float cooldownGiveChild = 5;
     [SerializeField] private string PlayerAttack;
     [SerializeField] private float cooldownExplotion;
@@ -38,7 +42,17 @@ public class SupportFsm : MonoBehaviour
     private bool explotionActive = false;
     private float timeExplotion = 0;
     private int _life;
+
+
+    private void PlayAttack()
+    {
+        attackAudio.Play();
+    }
     
+    private void PlayHit()
+    {
+        hitAudio.Play();
+    }
     
     private void destroyKamikaze()
     {
@@ -51,6 +65,7 @@ public class SupportFsm : MonoBehaviour
 
     private void EndGive()
     {
+        giveChildAudio.Play();
         targetChild.Active();
     }
 

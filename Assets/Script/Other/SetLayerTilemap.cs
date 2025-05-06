@@ -18,6 +18,7 @@ public class SetLayerTilemap : MonoBehaviour
     [SerializeField] private ChageEtage _ui;
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private GameObject backGround;
+    [SerializeField] private string tagObstacle;
     
     #endregion
     
@@ -42,7 +43,9 @@ public class SetLayerTilemap : MonoBehaviour
 					    int layerIndex = Mathf.RoundToInt(Mathf.Log(_layerMask.value, 2));
 					    
 					    _wall.gameObject.layer = layerIndex;
+					    _wall.gameObject.tag = tagObstacle;
 					    _collideable.gameObject.layer = layerIndex;
+					    _collideable.gameObject.tag = tagObstacle;
 					    
 					    goodWallAndCollid = true;
 				    }
