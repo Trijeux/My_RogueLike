@@ -35,6 +35,11 @@ public class CacFsm : MonoBehaviour
     private int hitCount;
     private int _life;
 
+    private void Death()
+    {
+        Destroy(gameObject);
+    }
+    
     private void PlayAttack()
     {
         attackAudio.Play();
@@ -221,7 +226,7 @@ public class CacFsm : MonoBehaviour
             if (_life <= 0 && !_Child.activeSelf)
             {
                 player.AddKill();
-                Destroy(gameObject);
+                _animator.SetBool("Death", true);
             }
             hitCount = 0;
         }

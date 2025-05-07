@@ -33,7 +33,7 @@ namespace Script.Player
         [SerializeField] private int attack;
         [SerializeField] private int numbKill;
         public PlayerInput playerInput;
-        
+        private bool _isDead = false;
         public bool InputRight { get; private set; }
         
         public bool InputLeft { get; private set; }
@@ -75,6 +75,12 @@ namespace Script.Player
         }
 
 
+        private void GameOver()
+        {
+            gameOver.SetActive(true);
+            game.SetActive(false);
+        }
+        
         private void PlayAttack()
         {
             attackSource.Play();
@@ -166,15 +172,17 @@ namespace Script.Player
                 }
                 else if (Mathf.Abs(_moveInput.x) > 0)
                 {
-                    _state = _moveInput.x > 0 ? new StateValue(DirectionLook.Left, 0.5f) : new StateValue(DirectionLook.Right, 0.5f);
+                    _state = _moveInput.x > 0 ? new StateValue(DirectionLook.Right, 0.5f) : new StateValue(DirectionLook.Left, 0.5f);
                 }
             }
             
-            transform.rotation = _state.State switch
-            {
-                DirectionLook.Right => Quaternion.Euler(0f, RotationY, 0f),
-                _ => Quaternion.Euler(0f, 0f, 0f)
-            };
+            Vector3 scale = transform.localScale;
+            if (_state.State == DirectionLook.Left)
+                scale.x = -Mathf.Abs(scale.x); 
+            else if (_state.State == DirectionLook.Right)
+                scale.x = Mathf.Abs(scale.x); 
+
+            transform.localScale = scale;
         }
 
         private void UpdateAttackCollider()
@@ -254,13 +262,13 @@ namespace Script.Player
         
         private void Damage()
         {
-            if (_triggerPlayer.IsHitDamage && _hitCount != 2)
+            if (_triggerPlayer.IsHitDamage && _hitCount != 2 && Life > 0)
             {
                 _animatorPlayer.SetBool("Hit", true);
                 _animatorPlayer.SetInteger("HitCount", _hitCount);
                 _triggerPlayer.Invincibility = true;
             }
-            else
+            else if (Life > 0)
             {
                 _triggerPlayer.IsHitDamage = false;
                 _hitCount = 0;
@@ -272,10 +280,11 @@ namespace Script.Player
 
         private void CheckIsAlive()
         {
-            if (Life <= 0)
+            if (Life <= 0 && !_isDead)
             {
-                gameOver.SetActive(true);
-                game.SetActive(false);
+                playerInput.DeactivateInput();
+               _animatorPlayer.SetTrigger("Death");
+               _isDead = true;
             }
         }
         

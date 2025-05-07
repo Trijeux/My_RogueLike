@@ -44,6 +44,11 @@ public class SupportFsm : MonoBehaviour
     private int _life;
 
 
+    private void Death()
+    {
+        Destroy(gameObject.transform.parent.gameObject);
+    }
+
     private void PlayAttack()
     {
         attackAudio.Play();
@@ -236,7 +241,7 @@ public class SupportFsm : MonoBehaviour
             if (_life <= 0)
             {
                 player.AddKill();
-                Destroy(gameObject.transform.parent.gameObject);
+                _animator.SetBool("Death", true);
             }
             hitCount = 0;
         }

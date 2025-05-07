@@ -51,6 +51,11 @@ public class DistanceFsm : MonoBehaviour
     private Vector3 scale;
     private int _life;
 
+    private void Death()
+    {
+        Destroy(gameObject.transform.parent.gameObject);
+    }
+    
     private void PlayAttack()
     {
         attackAudio.Play();
@@ -264,7 +269,7 @@ public class DistanceFsm : MonoBehaviour
             if (_life <= 0 && !_Child.activeSelf)
             {
                 player.AddKill();
-                Destroy(gameObject.transform.parent.gameObject);
+                _animator.SetBool("Death", true);
             }
             hitCount = 0;
         }
