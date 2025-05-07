@@ -125,12 +125,14 @@ namespace Script.Player
         public void AddAttack()
         {
             upgardAttackSource.Play();
+            _animatorPlayer.SetTrigger("UpgardeWeapon");
             attack++;
         }
 
         public void AddHeal()
         {
             upgardHealSource.Play();
+            _animatorPlayer.SetTrigger("UpgardeHeal");
             lifeMaxCurrent += 2;
             if (lifeMaxCurrent > 19*2)
             {
@@ -141,6 +143,7 @@ namespace Script.Player
         public void Heal()
         {
             healSource.Play();
+            _animatorPlayer.SetTrigger("Heal");
             Life += 2;
             if (lifeMaxCurrent < Life)
             {
@@ -282,9 +285,9 @@ namespace Script.Player
         {
             if (Life <= 0 && !_isDead)
             {
-                playerInput.DeactivateInput();
-               _animatorPlayer.SetTrigger("Death");
                _isDead = true;
+               _animatorPlayer.SetTrigger("Death");
+               playerInput.DeactivateInput();
             }
         }
         

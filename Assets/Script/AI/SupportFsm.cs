@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Pathfinding;
 using Script.Player;
 using Unity.Mathematics;
 using Unity.VisualScripting;
@@ -14,7 +15,8 @@ public class SupportFsm : MonoBehaviour
     {
         Empty,
         ChaseFriend,
-        Attach
+        Attach,
+        Dead
     }
 
     private ChaseFriend _chaseFriend;
@@ -42,7 +44,8 @@ public class SupportFsm : MonoBehaviour
     private bool explotionActive = false;
     private float timeExplotion = 0;
     private int _life;
-
+    private bool _isdead;
+    [SerializeField] private AIPath _path;
 
     private void Death()
     {
@@ -141,10 +144,18 @@ public class SupportFsm : MonoBehaviour
             case FsmState.ChaseFriend:
                 if (_chaseFriend.IsGoodDistanceForGrap)
                     SetState(FsmState.Attach);
+                if (_isdead)
+                {
+                    SetState(FsmState.Dead);
+                }
                 break;
             case FsmState.Attach:
                 if (!_chaseFriend.IsGoodDistanceForGrap)
                     SetState(FsmState.ChaseFriend);
+                if (_isdead)
+                {
+                    SetState(FsmState.Dead);
+                }
                 break;
             case FsmState.Empty:
             default:
@@ -164,6 +175,10 @@ public class SupportFsm : MonoBehaviour
                 _motion.ChaseFactor = 1;
                 _collider2DTrigger.enabled = false;
                 timerGiveChild = 0;
+                break;
+            case FsmState.Dead:
+                _path.destination = transform.position;
+                _animator.SetBool("Death", true);
                 break;
             case FsmState.Empty:
             default:
@@ -241,7 +256,7 @@ public class SupportFsm : MonoBehaviour
             if (_life <= 0)
             {
                 player.AddKill();
-                _animator.SetBool("Death", true);
+                _isdead = true;
             }
             hitCount = 0;
         }

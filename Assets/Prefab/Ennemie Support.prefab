@@ -134,6 +134,7 @@ MonoBehaviour:
   maxLife: 1
   damagePlayer: 1
   _collider2DTrigger: {fileID: 5420830541163382477}
+  _path: {fileID: 8011245678440062792}
 --- !u!70 &5420830541163382477
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Pathfinding;
 using Script.Player;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -12,7 +13,8 @@ public class DistanceFsm : MonoBehaviour
         Empty,
         Chase,
         Flee,
-        Attack
+        Attack,
+        Dead
     }
 
     private Chase _chase;
@@ -50,7 +52,9 @@ public class DistanceFsm : MonoBehaviour
     private bool canNotAttack;
     private Vector3 scale;
     private int _life;
-
+    private bool _isdead = false;
+    [SerializeField] private AIPath _path;
+    
     private void Death()
     {
         Destroy(gameObject.transform.parent.gameObject);
@@ -159,16 +163,28 @@ public class DistanceFsm : MonoBehaviour
                     SetState(FsmState.Flee);
                 else if (_chase.IsGoodDistanceForAttack && !canNotAttack)
                     SetState(FsmState.Attack);
+                if (_isdead)
+                {
+                    SetState(FsmState.Dead);
+                }
                 break;
             case FsmState.Flee:
                 if (canNotAttack || timerFeel > timerDurationFeel)
                     SetState(FsmState.Chase);
+                if (_isdead)
+                {
+                    SetState(FsmState.Dead);
+                }
                 break;
             case FsmState.Attack:
                 if (isHit || distanceToTarget < distanceFeel && !canNotAttack)
                     SetState(FsmState.Flee);
                 else if (!_chase.IsGoodDistanceForAttack)
                     SetState(FsmState.Chase);
+                if (_isdead)
+                {
+                    SetState(FsmState.Dead);
+                }
                 break;
             case FsmState.Empty:
             default:
@@ -192,6 +208,10 @@ public class DistanceFsm : MonoBehaviour
             case FsmState.Attack:
                 _motion.ChaseFactor = 1;
                 timerAttack = 0;
+                break;
+            case FsmState.Dead:
+                _path.destination = transform.position;
+                _animator.SetBool("Death", true);
                 break;
             case FsmState.Empty:
             default:
@@ -269,7 +289,7 @@ public class DistanceFsm : MonoBehaviour
             if (_life <= 0 && !_Child.activeSelf)
             {
                 player.AddKill();
-                _animator.SetBool("Death", true);
+                _isdead = true;
             }
             hitCount = 0;
         }

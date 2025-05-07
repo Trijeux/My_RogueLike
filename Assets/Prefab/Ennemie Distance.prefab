@@ -375,6 +375,7 @@ MonoBehaviour:
   _collider2D: {fileID: 2901009080159150453}
   _activeChild: {fileID: 6901857132490876052}
   _Child: {fileID: 1781592089748485590}
+  _path: {fileID: 252878879534977916}
 --- !u!70 &5507925305787872100
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

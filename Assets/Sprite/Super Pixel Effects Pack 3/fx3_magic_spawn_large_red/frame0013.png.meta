@@ -130,7 +130,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -139,12 +139,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -168,7 +168,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -900,7 +900,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -909,7 +909,39 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      frame0013_0: 8051787128312575447
+      frame0013_1: 2337780073518256592
+      frame0013_10: -1638490763892898244
+      frame0013_11: -4722790265196140373
+      frame0013_12: -5941730354838842434
+      frame0013_13: 1388886472900564252
+      frame0013_14: -5611953034677782064
+      frame0013_15: 8535159745834327216
+      frame0013_16: 3323099620401592264
+      frame0013_17: 7352705376847866215
+      frame0013_18: 5346739854190648863
+      frame0013_19: -8306696207692341696
+      frame0013_2: -1221357637456084902
+      frame0013_20: -5913245116384459701
+      frame0013_21: -5923431059683297096
+      frame0013_22: -1180809742830671135
+      frame0013_23: 1190789823699684292
+      frame0013_24: 3449860294030438505
+      frame0013_25: 5181836618091348020
+      frame0013_26: 60519620123921153
+      frame0013_27: 7236655961653003087
+      frame0013_28: 8624628096887819357
+      frame0013_29: -4127563548052350336
+      frame0013_3: 566528249330959300
+      frame0013_30: -844476183282458324
+      frame0013_31: -1407976362139570177
+      frame0013_4: 3977862467680392580
+      frame0013_5: -8106540334142472005
+      frame0013_6: -4797789405712557396
+      frame0013_7: -1516354323388893173
+      frame0013_8: 2649171893114485194
+      frame0013_9: -2251995902493834957
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

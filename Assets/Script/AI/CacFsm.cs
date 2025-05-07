@@ -1,4 +1,5 @@
 using System;
+using Pathfinding;
 using Script.Player;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -10,7 +11,8 @@ public class CacFsm : MonoBehaviour
         Empty,
         Chase,
         Flee,
-        Attack
+        Attack,
+        Dead,
     }
     private Chase _chase;
 
@@ -34,6 +36,8 @@ public class CacFsm : MonoBehaviour
     private bool isHit = false;
     private int hitCount;
     private int _life;
+    private bool _isdead = false;
+    [SerializeField] private AIPath _path;
 
     private void Death()
     {
@@ -110,16 +114,28 @@ public class CacFsm : MonoBehaviour
                     SetState(FsmState.Flee);
                 else if (_chase.IsGoodDistanceForAttack)
                     SetState(FsmState.Attack);
+                if (_isdead)
+                {
+                    SetState(FsmState.Dead);
+                }
                 break;
             case FsmState.Flee:
                 if (timerFeel > timerDurationFeel)
                     SetState(FsmState.Chase);
+                if (_isdead)
+                {
+                    SetState(FsmState.Dead);
+                }
                 break;
             case FsmState.Attack:
                 if (isHit)
                     SetState(FsmState.Flee);
                 else if (!_chase.IsGoodDistanceForAttack && haveAttacked)
                     SetState(FsmState.Chase);
+                if (_isdead)
+                {
+                    SetState(FsmState.Dead);
+                }
                 break;
             case FsmState.Empty:
             default:
@@ -146,6 +162,10 @@ public class CacFsm : MonoBehaviour
                 _motion.ChaseFactor = 1;
                 timerAttack = 0;
                 haveAttacked = false;
+                break;
+            case FsmState.Dead:
+                _path.destination = transform.position;
+                _animator.SetBool("Death", true);
                 break;
             case FsmState.Empty:
             default:
@@ -225,8 +245,8 @@ public class CacFsm : MonoBehaviour
             isHit = true;
             if (_life <= 0 && !_Child.activeSelf)
             {
+                _isdead = true;
                 player.AddKill();
-                _animator.SetBool("Death", true);
             }
             hitCount = 0;
         }
