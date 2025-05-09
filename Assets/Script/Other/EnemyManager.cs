@@ -30,7 +30,7 @@ public class EnemyManager : MonoBehaviour
             {
                 currentMonster = 0;
             }
-            Monsters.Clear();
+            //Monsters.Clear();
             for (int i = 0; i <= currentMonster; i++)
             {
                 Monsters.Add(transform.GetChild(i).gameObject);
